@@ -70,13 +70,13 @@
     /* ====== Nav ====== */
     .nav{
       position:sticky; top:0; z-index:50;
-      backdrop-filter: saturate(150%) blur(8px);
-      background: color-mix(in hsl, var(--bg), transparent 40%);
+      background: var(--bg);
       border-bottom:1px solid rgba(255,255,255,.07);
     }
     .nav-wrap{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
     .brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.2px}
-    .brand svg{width:28px; height:28px}
+    .brand svg{width:34px; height:34px}
+    .brand span{ font-weight:800; font-size: clamp(1.4rem, 2.4vw, 1.8rem); letter-spacing:.3px }
     .menu{display:flex; gap:20px; align-items:center}
     .menu a{color:var(--text); opacity:.85}
     .menu a:hover{opacity:1}
@@ -113,7 +113,7 @@
     @media (max-width:980px){ .hero-inner{grid-template-columns:1fr; padding:42px 0} }
 
     /* ====== Logos strip ====== */
-    .logos{opacity:.85; display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:18px; align-items:center; justify-items:center; padding:24px 0}
+    .logos{display:none} 
     .logos img{filter:grayscale(100%); opacity:.85}
 
     /* ====== Services ====== */
@@ -174,7 +174,7 @@
   <nav class="nav" aria-label="Primary">
     <div class="container nav-wrap">
       <a class="brand" href="#" aria-label="Quantara homepage">
-        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="currentColor" d="M16 2.5c7.44 0 13.5 6.06 13.5 13.5S23.44 29.5 16 29.5 2.5 23.44 2.5 16 8.56 2.5 16 2.5Zm0 3.2a10.3 10.3 0 1 0 0 20.6 10.3 10.3 0 0 0 0-20.6Zm0 3.1c3.96 0 7.2 3.24 7.2 7.2s-3.24 7.2-7.2 7.2S8.8 19.96 8.8 16 12.04 8.8 16 8.8Z"/></svg>
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="16" cy="16" r="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M21 21 L27 27" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
         <span>Quantara</span>
       </a>
       <div class="menu" role="menubar">
@@ -182,7 +182,7 @@
         <a href="#process" role="menuitem">Process</a>
         <a href="#work" role="menuitem">Work</a>
         <a href="#contact" role="menuitem">Contact</a>
-        <a class="cta" href="#contact" role="menuitem">Free Consultation</a>
+        <a class="cta" href="#contact" role="menuitem">Contact</a>
       </div>
       <button class="hamburger" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">☰</button>
     </div>
@@ -191,7 +191,7 @@
       <a href="#process">Process</a>
       <a href="#work">Work</a>
       <a href="#contact">Contact</a>
-      <a class="cta" href="#contact">Free Consultation</a>
+      <a class="cta" href="#contact">Contact</a>
     </div>
   </nav>
 
@@ -203,7 +203,7 @@
         <h1>Data-driven solutions that move your business forward</h1>
         <p class="sub">We design clear dashboards, automate manual work, and build lightweight apps on Microsoft Power Platform—so your team spends more time on impact, not busywork.</p>
         <div class="hero-cta">
-          <a class="btn primary" href="#contact">Book a free 30‑min consult</a>
+          <a class="btn primary" href="#contact">Contact us</a>
           <a class="btn secondary" href="#work">See example projects</a>
         </div>
         <div class="hero-cta" aria-hidden="true">
@@ -306,13 +306,7 @@
     </section>
 
     <!-- ====== Testimonials (optional placeholders) ====== -->
-    <section class="container">
-      <h2>What clients say</h2>
-      <div class="quotes">
-        <blockquote class="quote"><p>“Clear dashboards, fast delivery, and great communication. Our management finally sees the same numbers.”</p><footer>— Operations Director, Manufacturing</footer></blockquote>
-        <blockquote class="quote"><p>“They automated a painful month‑end. Now the team focuses on analysis—not copy/paste.”</p><footer>— CFO, Services</footer></blockquote>
-      </div>
-    </section>
+    <!-- testimonials section hidden as requested -->
 
     <!-- ====== Contact ====== -->
     <section id="contact" class="container">
@@ -326,7 +320,7 @@
             <li><strong>Location:</strong> Zagreb, Croatia • Serving EU remotely</li>
           </ul>
           <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
-            <a class="btn primary" href="mailto:info@quantara.hr?subject=Free%20consultation">Book free consultation</a>
+            <a class="btn primary" href="mailto:info@quantara.hr?subject=Inquiry">Email us</a>
             <a class="btn secondary" href="#services">View services</a>
           </div>
           <p class="section-sub" style="margin-top:12px">No cookies. No tracking. Just email or call.</p>
