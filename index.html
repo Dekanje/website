@@ -40,27 +40,26 @@
   <style>
     /* ====== Design System ====== */
     :root{
-      --bg: #0b1020;            /* dark blue-black */
-      --panel: #0f1630;         /* card background */
-      --brand: #2b7fff;         /* primary */
-      --brand-700: #1b6ef0;
-      --text: #e8eefc;          /* main text */
-      --muted: #a8b3cf;         /* secondary text */
-      --accent: #11c0a9;        /* accent */
-      --warn: #ffd166;
-      --maxw: 1200px;
-      --radius: 14px;
-      --shadow: 0 10px 30px rgba(0,0,0,.25);
-      --shadow-soft: 0 6px 18px rgba(0,0,0,.18);
+      --bg:#f7f9fc;            /* light background */
+      --panel:#ffffff;          /* card background */
+      --brand:#1f3b79;          /* primary (darker blue) */
+      --brand-700:#162b59;      /* darker hover */
+      --text:#1f2937;           /* main text */
+      --muted:#4b5563;          /* secondary text */
+      --accent:#0ea5a5;         /* subtle accent (teal) */
+      --warn:#ffd166;
+      --maxw:1200px;
+      --radius:14px;
+      --shadow:0 10px 30px rgba(0,0,0,.10);
+      --shadow-soft:0 6px 18px rgba(0,0,0,.08);
     }
 
-    @media (prefers-color-scheme: light){
-      :root{ --bg:#f7f9ff; --panel:#ffffff; --text:#1d2333; --muted:#4b5671; }
+    /* color scheme fixed to light/enterprise */
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";background:radial-gradient(1200px 600px at 70% -10%, rgba(43,127,255,.15), transparent), var(--bg); color:var(--text)}
+    body{margin:0;font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";background:radial-gradient(1200px 600px at 70% -10%, rgba(31,59,121,.08), transparent), var(--bg); color:var(--text)}
     a{color:var(--brand); text-decoration:none}
     a:hover{color:var(--brand-700)}
     img{max-width:100%; height:auto}
@@ -71,11 +70,7 @@
     .mobile-menu{display:none}
 
     /* ====== Nav ====== */
-    .nav{
-      position:sticky; top:0; z-index:50;
-      background: var(--bg);
-      border-bottom:1px solid rgba(255,255,255,.07);
-    }
+    .nav{position:sticky; top:0; z-index:50; background:var(--bg); border-bottom:1px solid rgba(0,0,0,.06);}
     .nav-wrap{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
     .brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.2px}
     .brand svg{width:40px; height:40px}
@@ -95,14 +90,14 @@
     }
 
     /* ====== Hero ====== */
-    .hero{position:relative; overflow:hidden}
-    .hero-inner{display:grid; grid-template-columns:1.25fr 1fr; gap:40px; align-items:center; padding:80px 0}
+    .hero{position:relative; overflow:hidden; background:linear-gradient(180deg, rgba(31,59,121,.04), transparent)}
+    .hero-inner{display:grid; grid-template-columns:1.25fr 1fr; gap:40px; align-items:center; padding:70px 0}
     h1{font-size:clamp(2.1rem, 5vw, 3.4rem); line-height:1.1; margin:14px 0 10px}
     .sub{color:var(--muted); font-size:1.1rem; max-width:55ch}
     .hero-cta{display:flex; gap:12px; margin-top:22px; flex-wrap:wrap}
     .btn{display:inline-flex; align-items:center; gap:8px; padding:12px 16px; border-radius:12px; font-weight:700; border:1px solid transparent}
-    .btn.primary{background:var(--brand); color:#fff}
-    .btn.primary:hover{background:var(--brand-700)}
+    .btn.primary{background:var(--brand); color:#fff; box-shadow:0 3px 10px rgba(31,59,121,.25)}
+    .btn.primary:hover{background:var(--brand-700); transform:translateY(-1px)}
     .btn.secondary{background:transparent; border-color:rgba(255,255,255,.18); color:var(--text)}
     .btn.secondary:hover{background:rgba(255,255,255,.06)}
     .hero-card{background:var(--panel); padding:22px; border-radius:var(--radius); box-shadow:var(--shadow-soft)}
@@ -120,7 +115,7 @@
     @media (max-width:980px){ .grid{grid-template-columns:1fr 1fr} }
     @media (max-width:640px){ .grid{grid-template-columns:1fr} }
 
-    .card{background:var(--panel); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow-soft); transition:transform .2s ease}
+    .card{background:var(--panel); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow-soft); transition:transform .2s ease, box-shadow .2s ease}
     .card:hover{transform:translateY(-3px)}
     .card h3{margin:6px 0 8px}
     .pill{display:inline-block; font-size:.8rem; padding:4px 8px; border-radius:999px; background:rgba(43,127,255,.15); color:var(--brand); font-weight:700}
@@ -289,15 +284,15 @@
       <div class="cs-grid">
         <article class="cs">
           <div class="img" role="img" aria-label="Sales performance dashboard"></div>
-          <div class="txt"><h3 data-i18n="work.cs1.title">Prodajni KPI dashboard</h3><p data-i18n="work.cs1.body">Vrijeme izrade izvješća smanjeno s 2 dana na 2 sata. Detalji po regiji, proizvodu i kanalu uz dinamičke ciljeve.</p></div>
+          <div class="txt"><h3 data-i18n="work.cs1.title">Prodajni KPI dashboard</h3><p data-i18n="work.cs1.body">Izvještavanje brže s 2 dana na 2 sata. Drill‑down po regiji, proizvodu i kanalu.</p></div>
         </article>
         <article class="cs">
           <div class="img" role="img" aria-label="Automation workflow"></div>
-          <div class="txt"><h3 data-i18n="work.cs2.title">Automatizirani mjesečni paket</h3><p data-i18n="work.cs2.body">Zakazano osvježavanje, PDF izvozi i odobrenja kroz Teams. 80% manje ručnog rada.</p></div>
+          <div class="txt"><h3 data-i18n="work.cs2.title">Automatizirani mjesečni paket</h3><p data-i18n="work.cs2.body">Zakazano osvježavanje, PDF izvozi i odobrenja u Teams — 80% manje ručnog rada.</p></div>
         </article>
         <article class="cs">
           <div class="img" role="img" aria-label="Operations app"></div>
-          <div class="txt"><h3 data-i18n="work.cs3.title">Inspection Power App</h3><p data-i18n="work.cs3.body">Mobilna aplikacija za terenske timove s offline unosom i slikama. Trenutna sinkronizacija na SharePoint/Dataverse.</p></div>
+          <div class="txt"><h3 data-i18n="work.cs3.title">Inspection Power App</h3><p data-i18n="work.cs3.body">Mobilna aplikacija s offline unosom i slikama. Brza sinkronizacija na SharePoint/Dataverse.</p></div>
         </article>
       </div>
     </section>
@@ -310,8 +305,8 @@
         <div class="contact-box">
           <ul class="contact-list">
             <li><strong><span data-i18n="contact.emailLabel">E‑mail</span>:</strong> <a href="mailto:info@quantara.hr">info@quantara.hr</a></li>
-            <li><strong><span data-i18n="contact.phoneLabel">Telefon</span>:</strong> <a href="tel:+38500000000">+385 95 555 1455</a></li>
-            <li><strong><span data-i18n="contact.locationLabel">Lokacija</span>:</strong> <span data-i18n="contact.locationText">Slavonski Brod, Hrvatska • Usluga na daljinu u EU</span></li>
+            <li><strong><span data-i18n="contact.phoneLabel">Telefon</span>:</strong> <a href="tel:+38500000000">+385 XX XXX XXX</a></li>
+            <li><strong><span data-i18n="contact.locationLabel">Lokacija</span>:</strong> <span data-i18n="contact.locationText">Zagreb, Hrvatska • Usluga na daljinu u EU</span></li>
           </ul>
           <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
             <a class="btn primary" href="mailto:info@quantara.hr?subject=Inquiry"><span data-i18n="contact.emailUs">Pošaljite nam e‑mail</span></a>
