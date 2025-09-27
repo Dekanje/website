@@ -191,7 +191,6 @@
         <a href="#process" role="menuitem"><span data-i18n="nav.process">Process</span></a>
         <a href="#work" role="menuitem"><span data-i18n="nav.work">Work</span></a>
         <a href="#contact" role="menuitem"><span data-i18n="nav.contact">Contact</span></a>
-        <a class="cta" href="#contact" role="menuitem"><span data-i18n="nav.cta">Contact</span></a>
         <select id="langSwitch" aria-label="Language" style="background:transparent;border:1px solid rgba(255,255,255,.25);color:var(--text);padding:8px 10px;border-radius:10px">
           <option value="en">EN</option>
           <option value="hr">HR</option>
@@ -206,13 +205,11 @@
       <a href="#work"><span data-i18n="nav.work">Work</span></a>
       <a href="#contact"><span data-i18n="nav.contact">Contact</span></a>
       <a class="cta" href="#contact"><span data-i18n="nav.cta">Contact</span></a>
-      <label style="font-size:.9rem;opacity:.85"><span data-i18n="nav.language">Language</span>:
-        <select id="langSwitchMobile" aria-label="Language">
+      <div><select id="langSwitchMobile" aria-label="Language">
           <option value="en">EN</option>
           <option value="hr">HR</option>
           <option value="de">DE</option>
-        </select>
-      </label>
+        </select></div>
     </div>
   </nav>
 
@@ -234,7 +231,7 @@
       </div>
       <div>
         <div class="hero-card">
-          <strong>What we deliver</strong>
+          <strong data-i18n="hero.cardTitle">What we deliver</strong>
           <ul>
             <li><span data-i18n="hero.deliver1">Executive KPI dashboards in Power BI</span></li>
             <li><span data-i18n="hero.deliver2">Automated refresh & data consolidation</span></li>
@@ -348,7 +345,11 @@
         </div>
         <div class="contact-box">
           <strong data-i18n="contact.companyDetails">Company details</strong>
-          <p>Quantara — Sole proprietorship<br/>VAT: (add if/when applicable)<br/>Working hours: Mon–Fri 09:00–17:00 CET</p>
+          <p>
+            <span data-i18n="contact.companyLine1">Quantara — Sole proprietorship</span><br/>
+            <span data-i18n="contact.vat">VAT: (add if/when applicable)</span><br/>
+            <span data-i18n="contact.hours">Working hours: Mon–Fri 09:00–17:00 CET</span>
+          </p>
           <span class="badge">GDPR‑friendly • Microsoft Partner ecosystem</span>
         </div>
       </div>
@@ -388,7 +389,8 @@
           deliver1:'Executive KPI dashboards in Power BI',
           deliver2:'Automated refresh & data consolidation',
           deliver3:'Approval workflows in Power Automate',
-          deliver4:'Power Apps for field & back‑office teams'
+          deliver4:'Power Apps for field & back‑office teams',
+          cardTitle:'What we deliver'
         },
         services: {
           title:'Services', sub:'Practical, outcome‑focused projects—delivered fast and made for your team.',
@@ -416,7 +418,7 @@
           title:'Contact', sub:'Tell us briefly what you want to achieve—we’ll reply within 1 business day.',
           emailLabel:'Email', phoneLabel:'Phone', locationLabel:'Location',
           locationText:'Zagreb, Croatia • Serving EU remotely',
-          emailUs:'Email us', viewServices:'View services', nocookies:'No cookies. No tracking. Just email or call.', companyDetails:'Company details'
+          emailUs:'Email us', viewServices:'View services', nocookies:'No cookies. No tracking. Just email or call.', companyDetails:'Company details', companyLine1:'Quantara — Sole proprietorship', vat:'VAT: (add if/when applicable)', hours:'Working hours: Mon–Fri 09:00–17:00 CET'
         },
         footer:{ backToTop:'Back to top ↑' }
       },
@@ -432,7 +434,8 @@
           deliver1:'Upravljački KPI dashboardi u Power BI‑ju',
           deliver2:'Automatsko osvježavanje i konsolidacija podataka',
           deliver3:'Tijekovi odobravanja u Power Automateu',
-          deliver4:'Power Apps za terenske i back‑office timove'
+          deliver4:'Power Apps za terenske i back‑office timove',
+          cardTitle:'Što isporučujemo'
         },
         services: {
           title:'Usluge', sub:'Praktični, na rezultate usmjereni projekti — brza isporuka i prilagođeno vašem timu.',
@@ -460,7 +463,7 @@
           title:'Kontakt', sub:'Ukratko nam napišite što želite postići — odgovaramo unutar 1 radnog dana.',
           emailLabel:'E‑mail', phoneLabel:'Telefon', locationLabel:'Lokacija',
           locationText:'Zagreb, Hrvatska • Usluga na daljinu u EU',
-          emailUs:'Pošaljite nam e‑mail', viewServices:'Pogledaj usluge', nocookies:'Bez kolačića. Bez praćenja. Samo e‑mail ili poziv.', companyDetails:'Podaci o tvrtki'
+          emailUs:'Pošaljite nam e‑mail', viewServices:'Pogledaj usluge', nocookies:'Bez kolačića. Bez praćenja. Samo e‑mail ili poziv.', companyDetails:'Podaci o tvrtki', companyLine1:'Quantara — Paušalni obrt', vat:'PDV ID: (po potrebi)', hours:'Radno vrijeme: Pon–Pet 09:00–17:00 CET'
         },
         footer:{ backToTop:'Na vrh ↑' }
       },
@@ -476,7 +479,8 @@
           deliver1:'Executive‑KPI‑Dashboards in Power BI',
           deliver2:'Automatisches Refresh & Datenkonsolidierung',
           deliver3:'Genehmigungs‑Workflows in Power Automate',
-          deliver4:'Power Apps für Field‑ & Backoffice‑Teams'
+          deliver4:'Power Apps für Field‑ & Backoffice‑Teams',
+          cardTitle:'Unsere Leistungen'
         },
         services: {
           title:'Leistungen', sub:'Pragmatische, ergebnisorientierte Projekte – schnell geliefert und auf Ihr Team zugeschnitten.',
@@ -504,7 +508,7 @@
           title:'Kontakt', sub:'Schreiben Sie uns kurz, was Sie erreichen möchten – wir antworten innerhalb eines Werktags.',
           emailLabel:'E‑Mail', phoneLabel:'Telefon', locationLabel:'Standort',
           locationText:'Zagreb, Kroatien • Remote in der EU',
-          emailUs:'E‑Mail senden', viewServices:'Leistungen ansehen', nocookies:'Keine Cookies. Kein Tracking. Nur E‑Mail oder Anruf.', companyDetails:'Firmendaten'
+          emailUs:'E‑Mail senden', viewServices:'Leistungen ansehen', nocookies:'Keine Cookies. Kein Tracking. Nur E‑Mail oder Anruf.', companyDetails:'Firmendaten', companyLine1:'Quantara — Kleingewerbe', vat:'USt‑ID: (falls zutreffend)', hours:'Öffnungszeiten: Mo–Fr 09:00–17:00 CET'
         },
         footer:{ backToTop:'Nach oben ↑' }
       }
