@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="hr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Quantara — Power BI, Automation & Business Apps</title>
-  <meta name="description" content="Quantara helps organizations build Power BI dashboards, automate processes with Power Automate, and deliver lightweight business apps on Microsoft Power Platform." />
+  <meta name="description" content="Quantara pomaže organizacijama izraditi Power BI nadzorne ploče, automatizirati procese pomoću Power Automatea te izgraditi lagane poslovne aplikacije na Power Platformi." />
   <link rel="canonical" href="https://www.quantara.hr/" />
   <link rel="icon" href="/favicon.ico" />
   
@@ -67,6 +67,9 @@
 
     .container{max-width:var(--maxw); margin-inline:auto; padding:0 20px}
 
+    /* Hide mobile menu by default (desktop). It only shows under 860px when .open */
+    .mobile-menu{display:none}
+
     /* ====== Nav ====== */
     .nav{
       position:sticky; top:0; z-index:50;
@@ -80,8 +83,6 @@
     .menu{display:flex; gap:20px; align-items:center}
     .menu a{color:var(--text); opacity:.85}
     .menu a:hover{opacity:1}
-    .cta{background:var(--brand); color:white; padding:10px 14px; border-radius:10px; font-weight:600}
-    .cta:hover{background:var(--brand-700)}
 
     .hamburger{display:none; background:none; border:none; color:var(--text); font-size:26px}
     @media (max-width:860px){
@@ -96,7 +97,6 @@
     /* ====== Hero ====== */
     .hero{position:relative; overflow:hidden}
     .hero-inner{display:grid; grid-template-columns:1.25fr 1fr; gap:40px; align-items:center; padding:80px 0}
-    .kicker{display:inline-block; background:rgba(17,192,169,.15); color:var(--accent); padding:6px 10px; border-radius:99px; font-weight:600; font-size:.9rem}
     h1{font-size:clamp(2.1rem, 5vw, 3.4rem); line-height:1.1; margin:14px 0 10px}
     .sub{color:var(--muted); font-size:1.1rem; max-width:55ch}
     .hero-cta{display:flex; gap:12px; margin-top:22px; flex-wrap:wrap}
@@ -107,16 +107,12 @@
     .btn.secondary:hover{background:rgba(255,255,255,.06)}
     .hero-card{background:var(--panel); padding:22px; border-radius:var(--radius); box-shadow:var(--shadow-soft)}
 
-    .stat{display:flex; align-items:center; gap:10px}
-    .stat .n{font-weight:800; font-size:1.4rem}
-
     @media (max-width:980px){ .hero-inner{grid-template-columns:1fr; padding:42px 0} }
 
     /* ====== Logos strip ====== */
-    .logos{display:none} 
-    .logos img{filter:grayscale(100%); opacity:.85}
+    .logos{display:none}
 
-    /* ====== Services ====== */
+    /* ====== Sections ====== */
     section{padding:70px 0}
     h2{font-size:clamp(1.6rem, 3.4vw, 2.2rem); margin:0 0 8px}
     .section-sub{color:var(--muted); margin:0 0 24px}
@@ -136,19 +132,13 @@
     @media (max-width:980px){ .steps{grid-template-columns:1fr 1fr} }
     @media (max-width:640px){ .steps{grid-template-columns:1fr} }
 
-    /* ====== Case Studies (placeholders) ====== */
+    /* ====== Case Studies ====== */
     .cs-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
     .cs{background:var(--panel); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-soft)}
     .cs .img{aspect-ratio:16/9; background:linear-gradient(135deg, rgba(43,127,255,.25), rgba(17,192,169,.25))}
     .cs .txt{padding:16px}
     @media (max-width:980px){ .cs-grid{grid-template-columns:1fr 1fr} }
     @media (max-width:640px){ .cs-grid{grid-template-columns:1fr} }
-
-    /* ====== Testimonials (placeholders) ====== */
-    .quotes{display:grid; grid-template-columns:1fr 1fr; gap:18px}
-    .quote{background:var(--panel); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow-soft)}
-    .quote p{margin:0}
-    @media (max-width:860px){ .quotes{grid-template-columns:1fr} }
 
     /* ====== Contact ====== */
     .contact-card{display:grid; grid-template-columns:1.2fr 1fr; gap:24px}
@@ -162,11 +152,8 @@
     footer{border-top:1px solid rgba(255,255,255,.08); padding:26px 0; color:var(--muted)}
     .foot{display:flex; gap:16px; align-items:center; justify-content:space-between; flex-wrap:wrap}
 
-    /* Accessibility preference */
-    @media (prefers-reduced-motion: reduce){
-      *{scroll-behavior:auto}
-      .card:hover{transform:none}
-    }
+    /* Accessibility */
+    @media (prefers-reduced-motion: reduce){ *{scroll-behavior:auto} .card:hover{transform:none} }
   </style>
 </head>
 <body>
@@ -175,41 +162,43 @@
     <div class="container nav-wrap">
       <a class="brand" href="#" aria-label="Quantara homepage">
         <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
-  <defs>
-    <linearGradient id="qGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#2b7fff"/>
-      <stop offset="1" stop-color="#11c0a9"/>
-    </linearGradient>
-  </defs>
-  <circle cx="28" cy="28" r="18" fill="none" stroke="url(#qGrad)" stroke-width="6"/>
-  <path d="M38 38 L56 56" stroke="url(#qGrad)" stroke-width="6" stroke-linecap="round"/>
-</svg>
+          <defs>
+            <linearGradient id="qGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#2b7fff"/>
+              <stop offset="1" stop-color="#11c0a9"/>
+            </linearGradient>
+          </defs>
+          <circle cx="28" cy="28" r="18" fill="none" stroke="url(#qGrad)" stroke-width="6"/>
+          <path d="M38 38 L56 56" stroke="url(#qGrad)" stroke-width="6" stroke-linecap="round"/>
+        </svg>
         <span>Quantara</span>
       </a>
       <div class="menu" role="menubar">
-        <a href="#services" role="menuitem"><span data-i18n="nav.services">Services</span></a>
-        <a href="#process" role="menuitem"><span data-i18n="nav.process">Process</span></a>
-        <a href="#work" role="menuitem"><span data-i18n="nav.work">Work</span></a>
-        <a href="#contact" role="menuitem"><span data-i18n="nav.contact">Contact</span></a>
+        <a href="#services" role="menuitem"><span data-i18n="nav.services">Usluge</span></a>
+        <a href="#process" role="menuitem"><span data-i18n="nav.process">Proces</span></a>
+        <a href="#work" role="menuitem"><span data-i18n="nav.work">Projekti</span></a>
+        <a href="#contact" role="menuitem"><span data-i18n="nav.contact">Kontakt</span></a>
         <select id="langSwitch" aria-label="Language" style="background:transparent;border:1px solid rgba(255,255,255,.25);color:var(--text);padding:8px 10px;border-radius:10px">
           <option value="en">EN</option>
-          <option value="hr">HR</option>
+          <option value="hr" selected>HR</option>
           <option value="de">DE</option>
         </select>
       </div>
       <button class="hamburger" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">☰</button>
+      
     </div>
     <div class="container mobile-menu" id="mobileMenu">
-      <a href="#services"><span data-i18n="nav.services">Services</span></a>
-      <a href="#process"><span data-i18n="nav.process">Process</span></a>
-      <a href="#work"><span data-i18n="nav.work">Work</span></a>
-      <a href="#contact"><span data-i18n="nav.contact">Contact</span></a>
-      <a class="cta" href="#contact"><span data-i18n="nav.cta">Contact</span></a>
-      <div><select id="langSwitchMobile" aria-label="Language">
+      <a href="#services"><span data-i18n="nav.services">Usluge</span></a>
+      <a href="#process"><span data-i18n="nav.process">Proces</span></a>
+      <a href="#work"><span data-i18n="nav.work">Projekti</span></a>
+      <a href="#contact"><span data-i18n="nav.contact">Kontakt</span></a>
+      <div>
+        <select id="langSwitchMobile" aria-label="Language">
           <option value="en">EN</option>
-          <option value="hr">HR</option>
+          <option value="hr" selected>HR</option>
           <option value="de">DE</option>
-        </select></div>
+        </select>
+      </div>
     </div>
   </nav>
 
@@ -217,26 +206,21 @@
   <header class="hero">
     <div class="container hero-inner">
       <div>
-        <span class="kicker" data-i18n="hero.kicker">$1<\/span>
-        <h1 data-i18n="hero.title">$1</h1>
-        <p class="sub" data-i18n="hero.sub">$1</p>
+        <h1 data-i18n="hero.title">Rješenja temeljena na podacima koja pokreću vaše poslovanje naprijed</h1>
+        <p class="sub" data-i18n="hero.sub">Dizajniramo jasne dashboarde, automatiziramo ručne poslove i izrađujemo lagane aplikacije na Microsoft Power Platformi — kako bi vaš tim više vremena ulagao u učinak, a manje u rutinu.</p>
         <div class="hero-cta">
-          <a class="btn primary" href="#contact"><span data-i18n="hero.ctaPrimary">Contact us</span></a>
-          <a class="btn secondary" href="#work"><span data-i18n="hero.ctaSecondary">See example projects</span></a>
-        </div>
-        <div class="hero-cta" aria-hidden="true">
-          <div class="hero-card stat"><span class="n">10×</span><span class="muted"><span class="muted" data-i18n="hero.stat1">faster reporting</span></span></div>
-          <div class="hero-card stat"><span class="n">0→1</span><span class="muted"><span class="muted" data-i18n="hero.stat2">from spreadsheet to app</span></span></div>
+          <a class="btn primary" href="#contact"><span data-i18n="hero.ctaPrimary">Kontaktirajte nas</span></a>
+          <a class="btn secondary" href="#work"><span data-i18n="hero.ctaSecondary">Pogledajte primjere projekata</span></a>
         </div>
       </div>
       <div>
         <div class="hero-card">
-          <strong data-i18n="hero.cardTitle">What we deliver</strong>
+          <strong data-i18n="hero.cardTitle">Što isporučujemo</strong>
           <ul>
-            <li><span data-i18n="hero.deliver1">Executive KPI dashboards in Power BI</span></li>
-            <li><span data-i18n="hero.deliver2">Automated refresh & data consolidation</span></li>
-            <li><span data-i18n="hero.deliver3">Approval workflows in Power Automate</span></li>
-            <li><span data-i18n="hero.deliver4">Power Apps for field & back‑office teams</span></li>
+            <li><span data-i18n="hero.deliver1">Upravljački KPI dashboardi u Power BI‑ju</span></li>
+            <li><span data-i18n="hero.deliver2">Automatsko osvježavanje i konsolidacija podataka</span></li>
+            <li><span data-i18n="hero.deliver3">Tijekovi odobravanja u Power Automateu</span></li>
+            <li><span data-i18n="hero.deliver4">Power Apps za terenske i back‑office timove</span></li>
           </ul>
           <span class="badge">Microsoft 365 • SharePoint • SQL • APIs • Excel</span>
         </div>
@@ -244,111 +228,103 @@
     </div>
   </header>
 
-  <!-- ====== Logos (replace with real client logos when ready) ====== -->
-  <div class="container logos" aria-label="Trusted by">
-    <img src="https://dummyimage.com/160x40/ffffff/777.png&text=CLIENT+ONE" alt="Client One placeholder" />
-    <img src="https://dummyimage.com/160x40/ffffff/777.png&text=CLIENT+TWO" alt="Client Two placeholder" />
-    <img src="https://dummyimage.com/160x40/ffffff/777.png&text=CLIENT+THREE" alt="Client Three placeholder" />
-    <img src="https://dummyimage.com/160x40/ffffff/777.png&text=CLIENT+FOUR" alt="Client Four placeholder" />
-  </div>
+  <!-- ====== Logos (hidden for now) ====== -->
+  <div class="container logos" aria-label="Trusted by"></div>
 
   <main>
     <!-- ====== Services ====== -->
     <section id="services" class="container">
-      <h2 data-i18n="services.title">Services</h2>
-      <p class="section-sub" data-i18n="services.sub">Practical, outcome‑focused projects—delivered fast and made for your team.</p>
+      <h2 data-i18n="services.title">Usluge</h2>
+      <p class="section-sub" data-i18n="services.sub">Praktični, na rezultate usmjereni projekti — brza isporuka i prilagođeno vašem timu.</p>
       <div class="grid">
         <article class="card">
-          <span class="pill">Power BI</span>
-          <h3 data-i18n="services.card1.title">Executive Dashboards</h3>
-          <p data-i18n="services.card1.body">Single source of truth for KPIs and ad‑hoc analysis. Data modeling, DAX measures, Row‑Level Security, scheduled refresh, and governance.</p>
+          <span class="pill" data-i18n="services.pill.powerbi">Power BI</span>
+          <h3 data-i18n="services.card1.title">Upravljački dashboardi</h3>
+          <p data-i18n="services.card1.body">Jedan izvor istine za KPI‑eve i ad‑hoc analize. Modeliranje podataka, DAX mjere, RLS, zakazano osvježavanje i upravljanje.</p>
         </article>
         <article class="card">
-          <span class="pill">Automation</span>
-          <h3 data-i18n="services.card2.title">Workflow & Reporting</h3>
-          <p data-i18n="services.card2.body">Automate manual steps with Power Automate: data collection, approvals, email alerts, and exports. Integrations with SharePoint, Excel, and APIs.</p>
+          <span class="pill" data-i18n="services.pill.automation">Automatizacija</span>
+          <h3 data-i18n="services.card2.title">Automatizirani izvještaji</h3>
+          <p data-i18n="services.card2.body">Automatizirajte ručne korake uz Power Automate: prikupljanje podataka, odobrenja, e‑mail obavijesti i izvoze. Integracije sa SharePointom, Excelom i API‑jima.</p>
         </article>
         <article class="card">
-          <span class="pill">Power Apps</span>
-          <h3 data-i18n="services.card3.title">Lightweight Business Apps</h3>
-          <p data-i18n="services.card3.body">From spreadsheet to app. Simple UIs for field operations, audits, requests, or inventory—secure and mobile‑ready.</p>
+          <span class="pill" data-i18n="services.pill.powerapps">Power Apps</span>
+          <h3 data-i18n="services.card3.title">Lagane poslovne aplikacije</h3>
+          <p data-i18n="services.card3.body">Od tablice do aplikacije. Jednostavna sučelja za teren i ured — sigurno i spremno za mobilne uređaje.</p>
         </article>
         <article class="card">
-          <span class="pill">Data</span>
-          <h3 data-i18n="services.card4.title">Data Strategy & Architecture</h3>
-          <p>Source mapping, data quality rules, and a pragmatic roadmap. Start small, iterate quickly, and scale with confidence.</p>
+          <span class="pill" data-i18n="services.pill.data">Podaci</span>
+          <h3 data-i18n="services.card4.title">Data strategija i arhitektura</h3>
+          <p data-i18n="services.card4.body">Mapiranje izvora, pravila kvalitete i pragmatičan plan. Krenite malo, iterirajte brzo i skalirajte s povjerenjem.</p>
         </article>
         <article class="card">
-          <span class="pill">Training</span>
-          <h3 data-i18n="services.card5.title">Enablement & Coaching</h3>
-          <p>Hands‑on Power BI and Power Platform training tailored to your real datasets and use‑cases.</p>
+          <span class="pill" data-i18n="services.pill.training">Edukacija</span>
+          <h3 data-i18n="services.card5.title">Obuka i podrška timu</h3>
+          <p data-i18n="services.card5.body">Praktična Power BI i Power Platform edukacija na vašim stvarnim podacima i slučajevima.</p>
         </article>
         <article class="card">
-          <span class="pill">Support</span>
-          <h3 data-i18n="services.card6.title">Care Plans</h3>
-          <p>On‑demand hours for enhancements, data fixes, and new features—without long contracts.</p>
+          <span class="pill" data-i18n="services.pill.support">Podrška</span>
+          <h3 data-i18n="services.card6.title">Održavanje</h3>
+          <p data-i18n="services.card6.body">Raspoloživi sati za dorade, ispravke podataka i nove značajke — bez dugoročnih obveza.</p>
         </article>
       </div>
     </section>
 
     <!-- ====== Process ====== -->
     <section id="process" class="container">
-      <h2 data-i18n="process.title">How we work</h2>
-      <p class="section-sub" data-i18n="process.sub">A simple 4‑step process focused on clarity and speed.</p>
+      <h2 data-i18n="process.title">Kako radimo</h2>
+      <p class="section-sub" data-i18n="process.sub">Jednostavan proces u 4 koraka s naglaskom na jasnoću i brzinu.</p>
       <div class="steps">
-        <div class="step"><span class="num">1</span><h3 data-i18n="process.s1.title">Discovery</h3><p data-i18n="process.s1.body">Short call to align on goals, data sources, and success criteria.</p></div>
-        <div class="step"><span class="num">2</span><h3 data-i18n="process.s2.title">Design</h3><p data-i18n="process.s2.body">We map the data model and sketch dashboard/app flows that match your process.</p></div>
-        <div class="step"><span class="num">3</span><h3 data-i18n="process.s3.title">Build</h3><p data-i18n="process.s3.body">Rapid iterations with real data. Weekly check‑ins and demos.</p></div>
-        <div class="step"><span class="num">4</span><h3 data-i18n="process.s4.title">Launch</h3><p data-i18n="process.s4.body">Governance, documentation, and enablement—so the solution sticks.</p></div>
+        <div class="step"><span class="num">1</span><h3 data-i18n="process.s1.title">Upoznavanje</h3><p data-i18n="process.s1.body">Kratki poziv za usklađivanje ciljeva, izvora podataka i kriterija uspjeha.</p></div>
+        <div class="step"><span class="num">2</span><h3 data-i18n="process.s2.title">Dizajn</h3><p data-i18n="process.s2.body">Mapiramo model podataka i skiciramo tokove dashboarda/aplikacije po vašem procesu.</p></div>
+        <div class="step"><span class="num">3</span><h3 data-i18n="process.s3.title">Izrada</h3><p data-i18n="process.s3.body">Brze iteracije na stvarnim podacima. Tjedni pregled i demo.</p></div>
+        <div class="step"><span class="num">4</span><h3 data-i18n="process.s4.title">Puštanje u rad</h3><p data-i18n="process.s4.body">Upravljanje, dokumentacija i edukacija — da rješenje zaživi.</p></div>
       </div>
     </section>
 
-    <!-- ====== Work / Case Studies (placeholders you can edit later) ====== -->
+    <!-- ====== Work / Case Studies ====== -->
     <section id="work" class="container">
-      <h2 data-i18n="work.title">Example Projects</h2>
-      <p class="section-sub" data-i18n="work.sub">Recent outcomes delivered for SMEs and enterprise teams.</p>
+      <h2 data-i18n="work.title">Primjeri projekata</h2>
+      <p class="section-sub" data-i18n="work.sub">Nedavni rezultati za male, srednje i velike timove.</p>
       <div class="cs-grid">
         <article class="cs">
-          <div class="img" role="img" aria-label="Sales performance dashboard" ></div>
-          <div class="txt"><h3 data-i18n="work.cs1.title">Sales KPI Dashboard</h3><p data-i18n="work.cs1.body">Cut reporting time from 2 days to 2 hours. Drill‑downs by region, product, and channel with dynamic targets.</p></div>
+          <div class="img" role="img" aria-label="Sales performance dashboard"></div>
+          <div class="txt"><h3 data-i18n="work.cs1.title">Prodajni KPI dashboard</h3><p data-i18n="work.cs1.body">Vrijeme izrade izvješća smanjeno s 2 dana na 2 sata. Detalji po regiji, proizvodu i kanalu uz dinamičke ciljeve.</p></div>
         </article>
         <article class="cs">
-          <div class="img" role="img" aria-label="Automation workflow" ></div>
-          <div class="txt"><h3 data-i18n="work.cs2.title">Automated Month‑End Pack</h3><p data-i18n="work.cs2.body">Scheduled data refresh, PDF exports, and approvals via Teams. Reduced manual steps by 80%.</p></div>
+          <div class="img" role="img" aria-label="Automation workflow"></div>
+          <div class="txt"><h3 data-i18n="work.cs2.title">Automatizirani mjesečni paket</h3><p data-i18n="work.cs2.body">Zakazano osvježavanje, PDF izvozi i odobrenja kroz Teams. 80% manje ručnog rada.</p></div>
         </article>
         <article class="cs">
-          <div class="img" role="img" aria-label="Operations app" ></div>
-          <div class="txt"><h3 data-i18n="work.cs3.title">Inspection Power App</h3><p data-i18n="work.cs3.body">Mobile app for field teams with offline capture and image attachments. Instant sync to SharePoint/Dataverse.</p></div>
+          <div class="img" role="img" aria-label="Operations app"></div>
+          <div class="txt"><h3 data-i18n="work.cs3.title">Inspection Power App</h3><p data-i18n="work.cs3.body">Mobilna aplikacija za terenske timove s offline unosom i slikama. Trenutna sinkronizacija na SharePoint/Dataverse.</p></div>
         </article>
       </div>
     </section>
-
-    <!-- ====== Testimonials (optional placeholders) ====== -->
-    <!-- testimonials section hidden as requested -->
 
     <!-- ====== Contact ====== -->
     <section id="contact" class="container">
-      <h2 data-i18n="contact.title">Contact</h2>
-      <p class="section-sub" data-i18n="contact.sub">Tell us briefly what you want to achieve—we’ll reply within 1 business day.</p>
+      <h2 data-i18n="contact.title">Kontakt</h2>
+      <p class="section-sub" data-i18n="contact.sub">Ukratko nam napišite što želite postići — odgovaramo unutar 1 radnog dana.</p>
       <div class="contact-card">
         <div class="contact-box">
           <ul class="contact-list">
-            <li><strong><span data-i18n="contact.emailLabel">Email<\/span>:</strong> <a href="mailto:info@quantara.hr">info@quantara.hr</a></li>
-            <li><strong><span data-i18n="contact.phoneLabel">Phone<\/span>:</strong> <a href="tel:+38500000000">+385 XX XXX XXX</a></li>
-            <li><strong><span data-i18n=\"contact.locationLabel\">Location<\/span>:</strong> <span data-i18n=\"contact.locationText\">Zagreb, Croatia • Serving EU remotely<\/span></li>
+            <li><strong><span data-i18n="contact.emailLabel">E‑mail</span>:</strong> <a href="mailto:info@quantara.hr">info@quantara.hr</a></li>
+            <li><strong><span data-i18n="contact.phoneLabel">Telefon</span>:</strong> <a href="tel:+38500000000">+385 XX XXX XXX</a></li>
+            <li><strong><span data-i18n="contact.locationLabel">Lokacija</span>:</strong> <span data-i18n="contact.locationText">Zagreb, Hrvatska • Usluga na daljinu u EU</span></li>
           </ul>
           <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
-            <a class="btn primary" href="mailto:info@quantara.hr?subject=Inquiry"><span data-i18n="contact.emailUs">Email us</span></a>
-            <a class="btn secondary" href="#services"><span data-i18n="contact.viewServices">View services</span></a>
+            <a class="btn primary" href="mailto:info@quantara.hr?subject=Inquiry"><span data-i18n="contact.emailUs">Pošaljite nam e‑mail</span></a>
+            <a class="btn secondary" href="#services"><span data-i18n="contact.viewServices">Pogledaj usluge</span></a>
           </div>
-          <p class="section-sub" style="margin-top:12px" data-i18n="contact.nocookies">No cookies. No tracking. Just email or call.</p>
+          <p class="section-sub" style="margin-top:12px" data-i18n="contact.nocookies">Bez kolačića. Bez praćenja. Samo e‑mail ili poziv.</p>
         </div>
         <div class="contact-box">
-          <strong data-i18n="contact.companyDetails">Company details</strong>
+          <strong data-i18n="contact.companyDetails">Podaci o tvrtki</strong>
           <p>
-            <span data-i18n="contact.companyLine1">Quantara — Sole proprietorship</span><br/>
-            <span data-i18n="contact.vat">VAT: (add if/when applicable)</span><br/>
-            <span data-i18n="contact.hours">Working hours: Mon–Fri 09:00–17:00 CET</span>
+            <span data-i18n="contact.companyLine1">Quantara — Paušalni obrt</span><br/>
+            <span data-i18n="contact.vat">PDV ID: (po potrebi)</span><br/>
+            <span data-i18n="contact.hours">Radno vrijeme: Pon–Pet 09:00–17:00 CET</span>
           </p>
           <span class="badge">GDPR‑friendly • Microsoft Partner ecosystem</span>
         </div>
@@ -359,7 +335,7 @@
   <footer>
     <div class="container foot">
       <small>© <span id="year"></span> Quantara. All rights reserved.</small>
-      <small><a href="#" onclick="window.scrollTo({top:0, behavior:'smooth'})"><span data-i18n="footer.backToTop">Back to top ↑</span></a></small>
+      <small><a href="#" onclick="window.scrollTo({top:0, behavior:'smooth'})"><span data-i18n="footer.backToTop">Na vrh ↑</span></a></small>
     </div>
   </footer>
 
@@ -394,6 +370,7 @@
         },
         services: {
           title:'Services', sub:'Practical, outcome‑focused projects—delivered fast and made for your team.',
+          pill:{ powerbi:'Power BI', automation:'Automation', powerapps:'Power Apps', data:'Data', training:'Training', support:'Support' },
           card1:{ title:'Executive Dashboards', body:'Single source of truth for KPIs and ad‑hoc analysis. Data modeling, DAX measures, Row‑Level Security, scheduled refresh, and governance.' },
           card2:{ title:'Workflow & Reporting', body:'Automate manual steps with Power Automate: data collection, approvals, email alerts, and exports. Integrations with SharePoint, Excel, and APIs.' },
           card3:{ title:'Lightweight Business Apps', body:'From spreadsheet to app. Simple UIs for field operations, audits, requests, or inventory—secure and mobile‑ready.' },
@@ -439,6 +416,7 @@
         },
         services: {
           title:'Usluge', sub:'Praktični, na rezultate usmjereni projekti — brza isporuka i prilagođeno vašem timu.',
+          pill:{ powerbi:'Power BI', automation:'Automatizacija', powerapps:'Power Apps', data:'Podaci', training:'Edukacija', support:'Podrška' },
           card1:{ title:'Upravljački dashboardi', body:'Jedan izvor istine za KPI‑eve i ad‑hoc analize. Modeliranje podataka, DAX mjere, RLS, zakazano osvježavanje i upravljanje.' },
           card2:{ title:'Automatizirani izvještaji', body:'Automatizirajte ručne korake uz Power Automate: prikupljanje podataka, odobrenja, e‑mail obavijesti i izvoze. Integracije sa SharePointom, Excelom i API‑jima.' },
           card3:{ title:'Lagane poslovne aplikacije', body:'Od tablice do aplikacije. Jednostavna sučelja za teren i ured — sigurno i spremno za mobilne uređaje.' },
@@ -484,6 +462,7 @@
         },
         services: {
           title:'Leistungen', sub:'Pragmatische, ergebnisorientierte Projekte – schnell geliefert und auf Ihr Team zugeschnitten.',
+          pill:{ powerbi:'Power BI', automation:'Automatisierung', powerapps:'Power Apps', data:'Daten', training:'Training', support:'Support' },
           card1:{ title:'Management‑Dashboards', body:'Eine verlässliche Datenbasis für KPIs und Ad‑hoc‑Analysen. Datenmodell, DAX‑Measures, RLS, geplante Aktualisierung und Governance.' },
           card2:{ title:'Workflows & Reporting', body:'Automatisieren Sie manuelle Schritte mit Power Automate: Datenerfassung, Genehmigungen, E‑Mail‑Benachrichtigungen und Exporte. Integrationen mit SharePoint, Excel und APIs.' },
           card3:{ title:'Schlanke Business‑Apps', body:'Von der Tabelle zur App. Einfache Oberflächen für Außendienst und Backoffice – sicher und mobilbereit.' },
@@ -515,7 +494,7 @@
     };
 
     function setLang(lang){
-      const dict = i18n[lang] || i18n.en;
+      const dict = i18n[lang] || i18n.hr;
       document.documentElement.lang = lang;
       document.title = dict.meta.title;
       const md = document.querySelector('meta[name="description"]');
@@ -534,7 +513,6 @@
 
     function initLang(){
       const stored = localStorage.getItem('lang');
-      const browser = (navigator.language||'en').slice(0,2).toLowerCase();
       const preferred = stored || 'hr';
       setLang(preferred);
       const s1 = document.getElementById('langSwitch');
