@@ -6,8 +6,13 @@
   <title>Quantara — Power BI, Automation & Business Apps</title>
   <meta name="description" content="Quantara pomaže organizacijama izraditi Power BI nadzorne ploče, automatizirati procese pomoću Power Automatea te izgraditi lagane poslovne aplikacije na Power Platformi." />
   <link rel="canonical" href="https://www.quantara.hr/" />
-  <link rel="icon" href="/favicon.ico" />
-  
+
+  <!-- Favicons -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
   <!-- Open Graph / Social -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.quantara.hr/" />
@@ -25,20 +30,20 @@
     "url": "https://www.quantara.hr/",
     "logo": "https://www.quantara.hr/og-image.png",
     "sameAs": [
-      "https://www.linkedin.com/company/quantara" 
+      "https://www.linkedin.com/company/quantara"
     ],
     "contactPoint": [{
       "@type": "ContactPoint",
       "contactType": "customer support",
       "email": "info@quantara.hr",
-      "telephone": "+385 95 555 14 55",
+      "telephone": "+385955551455",
       "areaServed": "HR, EU"
     }]
   }
   </script>
 
   <style>
-    /* ====== Design System ====== */
+    /* ====== Design System (enterprise / light) ====== */
     :root{
       --bg:#f7f9fc;            /* light background */
       --panel:#ffffff;          /* card background */
@@ -53,21 +58,21 @@
       --shadow:0 10px 30px rgba(0,0,0,.10);
       --shadow-soft:0 6px 18px rgba(0,0,0,.08);
     }
-
     /* color scheme fixed to light/enterprise */
-    }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";background:radial-gradient(1200px 600px at 70% -10%, rgba(31,59,121,.08), transparent), var(--bg); color:var(--text)}
+    body{
+      margin:0;
+      font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+      background:radial-gradient(1200px 600px at 70% -10%, rgba(31,59,121,.08), transparent), var(--bg);
+      color:var(--text)
+    }
     a{color:var(--brand); text-decoration:none}
     a:hover{color:var(--brand-700)}
     img{max-width:100%; height:auto}
 
     .container{max-width:var(--maxw); margin-inline:auto; padding:0 20px}
-
-    /* Hide mobile menu by default (desktop). It only shows under 860px when .open */
-    .mobile-menu{display:none}
 
     /* ====== Nav ====== */
     .nav{position:sticky; top:0; z-index:50; background:var(--bg); border-bottom:1px solid rgba(0,0,0,.06);}
@@ -80,14 +85,21 @@
     .menu a:hover{opacity:1}
 
     .hamburger{display:none; background:none; border:none; color:var(--text); font-size:26px}
+    .mobile-menu{display:none} /* hide on desktop */
     @media (max-width:860px){
       .menu{display:none}
       .hamburger{display:block}
       .mobile-menu{display:none; flex-direction:column; gap:12px; padding-bottom:16px}
       .mobile-menu a{color:var(--text)}
-      .mobile-menu .cta{align-self:flex-start}
       .mobile-menu.open{display:flex}
     }
+
+    /* ====== Buttons ====== */
+    .btn{display:inline-flex; align-items:center; gap:8px; padding:12px 16px; border-radius:12px; font-weight:700; border:1px solid transparent}
+    .btn.primary{background:var(--brand); color:#fff; box-shadow:0 3px 10px rgba(31,59,121,.25)}
+    .btn.primary:hover{background:var(--brand-700); transform:translateY(-1px)}
+    .btn.secondary{background:transparent; border-color:rgba(0,0,0,.12); color:var(--text)}
+    .btn.secondary:hover{background:rgba(0,0,0,.04)}
 
     /* ====== Hero ====== */
     .hero{position:relative; overflow:hidden; background:linear-gradient(180deg, rgba(31,59,121,.04), transparent)}
@@ -95,16 +107,11 @@
     h1{font-size:clamp(2.1rem, 5vw, 3.4rem); line-height:1.1; margin:14px 0 10px}
     .sub{color:var(--muted); font-size:1.1rem; max-width:55ch}
     .hero-cta{display:flex; gap:12px; margin-top:22px; flex-wrap:wrap}
-    .btn{display:inline-flex; align-items:center; gap:8px; padding:12px 16px; border-radius:12px; font-weight:700; border:1px solid transparent}
-    .btn.primary{background:var(--brand); color:#fff; box-shadow:0 3px 10px rgba(31,59,121,.25)}
-    .btn.primary:hover{background:var(--brand-700); transform:translateY(-1px)}
-    .btn.secondary{background:transparent; border-color:rgba(255,255,255,.18); color:var(--text)}
-    .btn.secondary:hover{background:rgba(255,255,255,.06)}
     .hero-card{background:var(--panel); padding:22px; border-radius:var(--radius); box-shadow:var(--shadow-soft)}
 
     @media (max-width:980px){ .hero-inner{grid-template-columns:1fr; padding:42px 0} }
 
-    /* ====== Logos strip ====== */
+    /* ====== Logos (hidden) ====== */
     .logos{display:none}
 
     /* ====== Sections ====== */
@@ -118,11 +125,11 @@
     .card{background:var(--panel); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow-soft); transition:transform .2s ease, box-shadow .2s ease}
     .card:hover{transform:translateY(-3px)}
     .card h3{margin:6px 0 8px}
-    .pill{display:inline-block; font-size:.8rem; padding:4px 8px; border-radius:999px; background:rgba(43,127,255,.15); color:var(--brand); font-weight:700}
+    .pill{display:inline-block; font-size:.8rem; padding:4px 8px; border-radius:999px; background:rgba(31,59,121,.10); color:var(--brand); font-weight:700}
 
     /* ====== Process ====== */
     .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:16px}
-    .step{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:20px}
+    .step{background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:var(--radius); padding:20px}
     .step .num{display:inline-grid; place-items:center; width:34px; height:34px; background:var(--brand); color:#fff; border-radius:50%; font-weight:800}
     @media (max-width:980px){ .steps{grid-template-columns:1fr 1fr} }
     @media (max-width:640px){ .steps{grid-template-columns:1fr} }
@@ -130,7 +137,7 @@
     /* ====== Case Studies ====== */
     .cs-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
     .cs{background:var(--panel); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-soft)}
-    .cs .img{aspect-ratio:16/9; background:linear-gradient(135deg, rgba(43,127,255,.25), rgba(17,192,169,.25))}
+    .cs .img{aspect-ratio:16/9; background:linear-gradient(135deg, rgba(31,59,121,.10), rgba(14,165,165,.15))}
     .cs .txt{padding:16px}
     @media (max-width:980px){ .cs-grid{grid-template-columns:1fr 1fr} }
     @media (max-width:640px){ .cs-grid{grid-template-columns:1fr} }
@@ -140,15 +147,12 @@
     .contact-box{background:var(--panel); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow-soft)}
     .contact-list{list-style:none; padding:0; margin:0}
     .contact-list li{margin:10px 0}
-    .badge{display:inline-block; padding:3px 8px; background:rgba(255,255,255,.08); border-radius:8px; color:var(--muted); font-size:.85rem}
+    .badge{display:inline-block; padding:3px 8px; background:rgba(0,0,0,.06); border-radius:8px; color:var(--muted); font-size:.85rem}
     @media (max-width:980px){ .contact-card{grid-template-columns:1fr} }
 
     /* ====== Footer ====== */
-    footer{border-top:1px solid rgba(255,255,255,.08); padding:26px 0; color:var(--muted)}
+    footer{border-top:1px solid rgba(0,0,0,.06); padding:26px 0; color:var(--muted)}
     .foot{display:flex; gap:16px; align-items:center; justify-content:space-between; flex-wrap:wrap}
-
-    /* Accessibility */
-    @media (prefers-reduced-motion: reduce){ *{scroll-behavior:auto} .card:hover{transform:none} }
   </style>
 </head>
 <body>
@@ -156,11 +160,12 @@
   <nav class="nav" aria-label="Primary">
     <div class="container nav-wrap">
       <a class="brand" href="#" aria-label="Quantara homepage">
+        <!-- Modern Q logo -->
         <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
           <defs>
             <linearGradient id="qGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#2b7fff"/>
-              <stop offset="1" stop-color="#11c0a9"/>
+              <stop offset="0" stop-color="#1f3b79"/>
+              <stop offset="1" stop-color="#0ea5a5"/>
             </linearGradient>
           </defs>
           <circle cx="28" cy="28" r="18" fill="none" stroke="url(#qGrad)" stroke-width="6"/>
@@ -168,20 +173,22 @@
         </svg>
         <span>Quantara</span>
       </a>
+
       <div class="menu" role="menubar">
         <a href="#services" role="menuitem"><span data-i18n="nav.services">Usluge</span></a>
         <a href="#process" role="menuitem"><span data-i18n="nav.process">Proces</span></a>
         <a href="#work" role="menuitem"><span data-i18n="nav.work">Projekti</span></a>
         <a href="#contact" role="menuitem"><span data-i18n="nav.contact">Kontakt</span></a>
-        <select id="langSwitch" aria-label="Language" style="background:transparent;border:1px solid rgba(255,255,255,.25);color:var(--text);padding:8px 10px;border-radius:10px">
+        <select id="langSwitch" aria-label="Language" style="background:transparent;border:1px solid rgba(0,0,0,.15);color:var(--text);padding:8px 10px;border-radius:10px">
           <option value="en">EN</option>
           <option value="hr" selected>HR</option>
           <option value="de">DE</option>
         </select>
       </div>
+
       <button class="hamburger" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">☰</button>
-      
     </div>
+
     <div class="container mobile-menu" id="mobileMenu">
       <a href="#services"><span data-i18n="nav.services">Usluge</span></a>
       <a href="#process"><span data-i18n="nav.process">Proces</span></a>
@@ -212,10 +219,10 @@
         <div class="hero-card">
           <strong data-i18n="hero.cardTitle">Što isporučujemo</strong>
           <ul>
-            <li><span data-i18n="hero.deliver1">Upravljački KPI dashboardi u Power BI‑ju</span></li>
+            <li><span data-i18n="hero.deliver1">Upravljački KPI dashboardi u Power BI-ju</span></li>
             <li><span data-i18n="hero.deliver2">Automatsko osvježavanje i konsolidacija podataka</span></li>
             <li><span data-i18n="hero.deliver3">Tijekovi odobravanja u Power Automateu</span></li>
-            <li><span data-i18n="hero.deliver4">Power Apps za terenske i back‑office timove</span></li>
+            <li><span data-i18n="hero.deliver4">Power Apps za terenske i back-office timove</span></li>
           </ul>
           <span class="badge">Microsoft 365 • SharePoint • SQL • APIs • Excel</span>
         </div>
@@ -223,7 +230,7 @@
     </div>
   </header>
 
-  <!-- ====== Logos (hidden for now) ====== -->
+  <!-- Logos (hidden for now) -->
   <div class="container logos" aria-label="Trusted by"></div>
 
   <main>
@@ -235,12 +242,12 @@
         <article class="card">
           <span class="pill" data-i18n="services.pill.powerbi">Power BI</span>
           <h3 data-i18n="services.card1.title">Upravljački dashboardi</h3>
-          <p data-i18n="services.card1.body">Jedan izvor istine za KPI‑eve i ad‑hoc analize. Modeliranje podataka, DAX mjere, RLS, zakazano osvježavanje i upravljanje.</p>
+          <p data-i18n="services.card1.body">Jedan izvor istine za KPI-eve i ad-hoc analize. Modeliranje podataka, DAX mjere, RLS, zakazano osvježavanje i upravljanje.</p>
         </article>
         <article class="card">
           <span class="pill" data-i18n="services.pill.automation">Automatizacija</span>
           <h3 data-i18n="services.card2.title">Automatizirani izvještaji</h3>
-          <p data-i18n="services.card2.body">Automatizirajte ručne korake uz Power Automate: prikupljanje podataka, odobrenja, e‑mail obavijesti i izvoze. Integracije sa SharePointom, Excelom i API‑jima.</p>
+          <p data-i18n="services.card2.body">Automatizirajte ručne korake uz Power Automate: prikupljanje podataka, odobrenja, e-mail obavijesti i izvoze. Integracije sa SharePointom, Excelom i API-jima.</p>
         </article>
         <article class="card">
           <span class="pill" data-i18n="services.pill.powerapps">Power Apps</span>
@@ -284,7 +291,7 @@
       <div class="cs-grid">
         <article class="cs">
           <div class="img" role="img" aria-label="Sales performance dashboard"></div>
-          <div class="txt"><h3 data-i18n="work.cs1.title">Prodajni KPI dashboard</h3><p data-i18n="work.cs1.body">Izvještavanje brže s 2 dana na 2 sata. Drill‑down po regiji, proizvodu i kanalu.</p></div>
+          <div class="txt"><h3 data-i18n="work.cs1.title">Prodajni KPI dashboard</h3><p data-i18n="work.cs1.body">Izvještavanje brže s 2 dana na 2 sata. Drill-down po regiji, proizvodu i kanalu.</p></div>
         </article>
         <article class="cs">
           <div class="img" role="img" aria-label="Automation workflow"></div>
@@ -304,15 +311,15 @@
       <div class="contact-card">
         <div class="contact-box">
           <ul class="contact-list">
-            <li><strong><span data-i18n="contact.emailLabel">E‑mail</span>:</strong> <a href="mailto:info@quantara.hr">info@quantara.hr</a></li>
-            <li><strong><span data-i18n="contact.phoneLabel">Telefon</span>:</strong> <a href="tel:+38500000000">+385 95 555 1455</a></li>
-            <li><strong><span data-i18n="contact.locationLabel">Lokacija</span>:</strong> <span data-i18n="contact.locationText">Zagreb, Hrvatska • Usluga na daljinu u EU</span></li>
+            <li><strong><span data-i18n="contact.emailLabel">E-mail</span>:</strong> <a href="mailto:info@quantara.hr">info@quantara.hr</a></li>
+            <li><strong><span data-i18n="contact.phoneLabel">Telefon</span>:</strong> <a href="tel:+385955551455">095 555 1455</a></li>
+            <li><strong><span data-i18n="contact.locationLabel">Lokacija</span>:</strong> <span data-i18n="contact.locationText">Slavonski Brod, Hrvatska • Usluga na daljinu u EU</span></li>
           </ul>
           <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
-            <a class="btn primary" href="mailto:info@quantara.hr?subject=Inquiry"><span data-i18n="contact.emailUs">Pošaljite nam e‑mail</span></a>
+            <a class="btn primary" href="mailto:info@quantara.hr?subject=Inquiry"><span data-i18n="contact.emailUs">Pošaljite nam e-mail</span></a>
             <a class="btn secondary" href="#services"><span data-i18n="contact.viewServices">Pogledaj usluge</span></a>
           </div>
-          <p class="section-sub" style="margin-top:12px" data-i18n="contact.nocookies">Bez kolačića. Bez praćenja. Samo e‑mail ili poziv.</p>
+          <p class="section-sub" style="margin-top:12px" data-i18n="contact.nocookies">Bez kolačića. Bez praćenja. Samo e-mail ili poziv.</p>
         </div>
         <div class="contact-box">
           <strong data-i18n="contact.companyDetails">Podaci o tvrtki</strong>
@@ -321,7 +328,7 @@
             <span data-i18n="contact.vat">PDV ID: (po potrebi)</span><br/>
             <span data-i18n="contact.hours">Radno vrijeme: Pon–Pet 09:00–17:00 CET</span>
           </p>
-          <span class="badge">GDPR‑friendly • Microsoft Partner ecosystem</span>
+          <span class="badge">GDPR-friendly • Microsoft Partner ecosystem</span>
         </div>
       </div>
     </section>
@@ -360,37 +367,38 @@
           deliver1:'Executive KPI dashboards in Power BI',
           deliver2:'Automated refresh & data consolidation',
           deliver3:'Approval workflows in Power Automate',
-          deliver4:'Power Apps for field & back‑office teams',
+          deliver4:'Power Apps for field & back-office teams',
           cardTitle:'What we deliver'
         },
         services: {
-          title:'Services', sub:'Practical, outcome‑focused projects—delivered fast and made for your team.',
+          title:'Services', sub:'Practical, outcome-focused projects—delivered fast and made for your team.',
           pill:{ powerbi:'Power BI', automation:'Automation', powerapps:'Power Apps', data:'Data', training:'Training', support:'Support' },
-          card1:{ title:'Executive Dashboards', body:'Single source of truth for KPIs and ad‑hoc analysis. Data modeling, DAX measures, Row‑Level Security, scheduled refresh, and governance.' },
+          card1:{ title:'Executive Dashboards', body:'Single source of truth for KPIs and ad-hoc analysis. Data modeling, DAX measures, Row-Level Security, scheduled refresh, and governance.' },
           card2:{ title:'Workflow & Reporting', body:'Automate manual steps with Power Automate: data collection, approvals, email alerts, and exports. Integrations with SharePoint, Excel, and APIs.' },
-          card3:{ title:'Lightweight Business Apps', body:'From spreadsheet to app. Simple UIs for field operations, audits, requests, or inventory—secure and mobile‑ready.' },
+          card3:{ title:'Lightweight Business Apps', body:'From spreadsheet to app. Simple UIs for field operations, audits, requests, or inventory—secure and mobile-ready.' },
           card4:{ title:'Data Strategy & Architecture', body:'Source mapping, data quality rules, and a pragmatic roadmap. Start small, iterate quickly, and scale with confidence.' },
-          card5:{ title:'Enablement & Coaching', body:'Hands‑on Power BI and Power Platform training tailored to your real datasets and use‑cases.' },
-          card6:{ title:'Care Plans', body:'On‑demand hours for enhancements, data fixes, and new features—without long contracts.' }
+          card5:{ title:'Enablement & Coaching', body:'Hands-on Power BI and Power Platform training tailored to your real datasets and use-cases.' },
+          card6:{ title:'Care Plans', body:'On-demand hours for enhancements, data fixes, and new features—without long contracts.' }
         },
         process: {
-          title:'How we work', sub:'A simple 4‑step process focused on clarity and speed.',
+          title:'How we work', sub:'A simple 4-step process focused on clarity and speed.',
           s1:{ title:'Discovery', body:'Short call to align on goals, data sources, and success criteria.' },
           s2:{ title:'Design', body:'We map the data model and sketch dashboard/app flows that match your process.' },
-          s3:{ title:'Build', body:'Rapid iterations with real data. Weekly check‑ins and demos.' },
+          s3:{ title:'Build', body:'Rapid iterations with real data. Weekly check-ins and demos.' },
           s4:{ title:'Launch', body:'Governance, documentation, and enablement—so the solution sticks.' }
         },
         work: {
           title:'Example Projects', sub:'Recent outcomes delivered for SMEs and enterprise teams.',
-          cs1:{ title:'Sales KPI Dashboard', body:'Cut reporting time from 2 days to 2 hours. Drill‑downs by region, product, and channel with dynamic targets.' },
-          cs2:{ title:'Automated Month‑End Pack', body:'Scheduled data refresh, PDF exports, and approvals via Teams. Reduced manual steps by 80%.' },
+          cs1:{ title:'Sales KPI Dashboard', body:'Cut reporting time from 2 days to 2 hours. Drill-downs by region, product, and channel with dynamic targets.' },
+          cs2:{ title:'Automated Month-End Pack', body:'Scheduled data refresh, PDF exports, and approvals via Teams. Reduced manual steps by 80%.' },
           cs3:{ title:'Inspection Power App', body:'Mobile app for field teams with offline capture and image attachments. Instant sync to SharePoint/Dataverse.' }
         },
         contact: {
           title:'Contact', sub:'Tell us briefly what you want to achieve—we’ll reply within 1 business day.',
           emailLabel:'Email', phoneLabel:'Phone', locationLabel:'Location',
           locationText:'Slavonski Brod, Croatia • Serving EU remotely',
-          emailUs:'Email us', viewServices:'View services', nocookies:'No cookies. No tracking. Just email or call.', companyDetails:'Company details', companyLine1:'Quantara — Sole proprietorship', vat:'VAT: (add if/when applicable)', hours:'Working hours: Mon–Fri 09:00–17:00 CET'
+          emailUs:'Email us', viewServices:'View services', nocookies:'No cookies. No tracking. Just email or call.',
+          companyDetails:'Company details', companyLine1:'Quantara — Sole proprietorship', vat:'VAT: (add if/when applicable)', hours:'Working hours: Mon–Fri 09:00–17:00 CET'
         },
         footer:{ backToTop:'Back to top ↑' }
       },
@@ -403,17 +411,17 @@
           sub:'Dizajniramo jasne dashboarde, automatiziramo ručne poslove i izrađujemo lagane aplikacije na Microsoft Power Platformi — kako bi vaš tim više vremena ulagao u učinak, a manje u rutinu.',
           ctaPrimary:'Kontaktirajte nas', ctaSecondary:'Pogledajte primjere projekata',
           stat1:'brže izvještavanje', stat2:'od Excela do aplikacije',
-          deliver1:'Upravljački KPI dashboardi u Power BI‑ju',
+          deliver1:'Upravljački KPI dashboardi u Power BI-ju',
           deliver2:'Automatsko osvježavanje i konsolidacija podataka',
           deliver3:'Tijekovi odobravanja u Power Automateu',
-          deliver4:'Power Apps za terenske i back‑office timove',
+          deliver4:'Power Apps za terenske i back-office timove',
           cardTitle:'Što isporučujemo'
         },
         services: {
           title:'Usluge', sub:'Praktični, na rezultate usmjereni projekti — brza isporuka i prilagođeno vašem timu.',
           pill:{ powerbi:'Power BI', automation:'Automatizacija', powerapps:'Power Apps', data:'Podaci', training:'Edukacija', support:'Podrška' },
-          card1:{ title:'Upravljački dashboardi', body:'Jedan izvor istine za KPI‑eve i ad‑hoc analize. Modeliranje podataka, DAX mjere, RLS, zakazano osvježavanje i upravljanje.' },
-          card2:{ title:'Automatizirani izvještaji', body:'Automatizirajte ručne korake uz Power Automate: prikupljanje podataka, odobrenja, e‑mail obavijesti i izvoze. Integracije sa SharePointom, Excelom i API‑jima.' },
+          card1:{ title:'Upravljački dashboardi', body:'Jedan izvor istine za KPI-eve i ad-hoc analize. Modeliranje podataka, DAX mjere, RLS, zakazano osvježavanje i upravljanje.' },
+          card2:{ title:'Automatizirani izvještaji', body:'Automatizirajte ručne korake uz Power Automate: prikupljanje podataka, odobrenja, e-mail obavijesti i izvoze. Integracije sa SharePointom, Excelom i API-jima.' },
           card3:{ title:'Lagane poslovne aplikacije', body:'Od tablice do aplikacije. Jednostavna sučelja za teren i ured — sigurno i spremno za mobilne uređaje.' },
           card4:{ title:'Data strategija i arhitektura', body:'Mapiranje izvora, pravila kvalitete i pragmatičan plan. Krenite malo, iterirajte brzo i skalirajte s povjerenjem.' },
           card5:{ title:'Obuka i podrška timu', body:'Praktična Power BI i Power Platform edukacija na vašim stvarnim podacima i slučajevima.' },
@@ -434,14 +442,15 @@
         },
         contact: {
           title:'Kontakt', sub:'Ukratko nam napišite što želite postići — odgovaramo unutar 1 radnog dana.',
-          emailLabel:'E‑mail', phoneLabel:'Telefon', locationLabel:'Lokacija',
+          emailLabel:'E-mail', phoneLabel:'Telefon', locationLabel:'Lokacija',
           locationText:'Slavonski Brod, Hrvatska • Usluga na daljinu u EU',
-          emailUs:'Pošaljite nam e‑mail', viewServices:'Pogledaj usluge', nocookies:'Bez kolačića. Bez praćenja. Samo e‑mail ili poziv.', companyDetails:'Podaci o tvrtki', companyLine1:'Quantara — Paušalni obrt', vat:'PDV ID: (po potrebi)', hours:'Radno vrijeme: Pon–Pet 09:00–17:00 CET'
+          emailUs:'Pošaljite nam e-mail', viewServices:'Pogledaj usluge', nocookies:'Bez kolačića. Bez praćenja. Samo e-mail ili poziv.',
+          companyDetails:'Podaci o tvrtki', companyLine1:'Quantara — Paušalni obrt', vat:'PDV ID: (po potrebi)', hours:'Radno vrijeme: Pon–Pet 09:00–17:00 CET'
         },
         footer:{ backToTop:'Na vrh ↑' }
       },
       de: {
-        meta: { title: 'Quantara — Power BI, Automatisierung & Business Apps', description: 'Quantara hilft Organisationen, Power‑BI‑Dashboards zu erstellen, Prozesse mit Power Automate zu automatisieren und schlanke Business‑Apps auf der Microsoft Power Platform zu liefern.' },
+        meta: { title: 'Quantara — Power BI, Automatisierung & Business Apps', description: 'Quantara hilft Organisationen, Power-BI-Dashboards zu erstellen, Prozesse mit Power Automate zu automatisieren und schlanke Business-Apps auf der Microsoft Power Platform zu liefern.' },
         nav: { services:'Leistungen', process:'Vorgehen', work:'Projekte', contact:'Kontakt', cta:'Kontakt', language:'Sprache' },
         hero: {
           kicker:'Power BI • Automatisierung • Power Apps',
@@ -449,40 +458,41 @@
           sub:'Wir entwerfen klare Dashboards, automatisieren manuelle Arbeit und bauen schlanke Apps auf der Microsoft Power Platform – damit Ihr Team mehr Zeit für Wirkung und weniger für Routine aufwendet.',
           ctaPrimary:'Kontakt aufnehmen', ctaSecondary:'Projektbeispiele ansehen',
           stat1:'schnelleres Reporting', stat2:'von Excel zur App',
-          deliver1:'Executive‑KPI‑Dashboards in Power BI',
+          deliver1:'Executive-KPI-Dashboards in Power BI',
           deliver2:'Automatisches Refresh & Datenkonsolidierung',
-          deliver3:'Genehmigungs‑Workflows in Power Automate',
-          deliver4:'Power Apps für Field‑ & Backoffice‑Teams',
+          deliver3:'Genehmigungs-Workflows in Power Automate',
+          deliver4:'Power Apps für Field- & Backoffice-Teams',
           cardTitle:'Unsere Leistungen'
         },
         services: {
           title:'Leistungen', sub:'Pragmatische, ergebnisorientierte Projekte – schnell geliefert und auf Ihr Team zugeschnitten.',
           pill:{ powerbi:'Power BI', automation:'Automatisierung', powerapps:'Power Apps', data:'Daten', training:'Training', support:'Support' },
-          card1:{ title:'Management‑Dashboards', body:'Eine verlässliche Datenbasis für KPIs und Ad‑hoc‑Analysen. Datenmodell, DAX‑Measures, RLS, geplante Aktualisierung und Governance.' },
-          card2:{ title:'Workflows & Reporting', body:'Automatisieren Sie manuelle Schritte mit Power Automate: Datenerfassung, Genehmigungen, E‑Mail‑Benachrichtigungen und Exporte. Integrationen mit SharePoint, Excel und APIs.' },
-          card3:{ title:'Schlanke Business‑Apps', body:'Von der Tabelle zur App. Einfache Oberflächen für Außendienst und Backoffice – sicher und mobilbereit.' },
+          card1:{ title:'Management-Dashboards', body:'Eine verlässliche Datenbasis für KPIs und Ad-hoc-Analysen. Datenmodell, DAX-Measures, RLS, geplante Aktualisierung und Governance.' },
+          card2:{ title:'Workflows & Reporting', body:'Automatisieren Sie manuelle Schritte mit Power Automate: Datenerfassung, Genehmigungen, E-Mail-Benachrichtigungen und Exporte. Integrationen mit SharePoint, Excel und APIs.' },
+          card3:{ title:'Schlanke Business-Apps', body:'Von der Tabelle zur App. Einfache Oberflächen für Außendienst und Backoffice – sicher und mobilbereit.' },
           card4:{ title:'Datenstrategie & Architektur', body:'Quellen-Mapping, Qualitätsregeln und ein pragmatischer Fahrplan. Klein starten, schnell iterieren, sicher skalieren.' },
-          card5:{ title:'Enablement & Training', body:'Praxisnahe Power‑BI- und Power‑Platform‑Schulungen mit Ihren echten Daten und Use‑Cases.' },
-          card6:{ title:'Care‑Pläne', body:'Bedarfsorientierte Stunden für Erweiterungen, Datenkorrekturen und neue Features – ohne lange Bindung.' }
+          card5:{ title:'Enablement & Training', body:'Praxisnahe Power-BI- und Power-Platform-Schulungen mit Ihren echten Daten und Use-Cases.' },
+          card6:{ title:'Care-Pläne', body:'Bedarfsorientierte Stunden für Erweiterungen, Datenkorrekturen und neue Features – ohne lange Bindung.' }
         },
         process: {
-          title:'So arbeiten wir', sub:'Ein einfacher 4‑Schritte‑Prozess mit Fokus auf Klarheit und Tempo.',
+          title:'So arbeiten wir', sub:'Ein einfacher 4-Schritte-Prozess mit Fokus auf Klarheit und Tempo.',
           s1:{ title:'Discovery', body:'Kurzes Gespräch zu Zielen, Datenquellen und Erfolgskriterien.' },
-          s2:{ title:'Design', body:'Wir skizzieren Datenmodell und Dashboard/App‑Flows passend zu Ihrem Prozess.' },
-          s3:{ title:'Build', body:'Schnelle Iterationen mit Echtdaten. Wöchentliche Check‑ins und Demos.' },
-          s4:{ title:'Go‑Live', body:'Governance, Dokumentation und Enablement – damit die Lösung wirkt.' }
+          s2:{ title:'Design', body:'Wir skizzieren Datenmodell und Dashboard/App-Flows passend zu Ihrem Prozess.' },
+          s3:{ title:'Build', body:'Schnelle Iterationen mit Echtdaten. Wöchentliche Check-ins und Demos.' },
+          s4:{ title:'Go-Live', body:'Governance, Dokumentation und Enablement – damit die Lösung wirkt.' }
         },
         work: {
-          title:'Beispielprojekte', sub:'Aktuelle Ergebnisse für KMU und Enterprise‑Teams.',
-          cs1:{ title:'Sales‑KPI‑Dashboard', body:'Berichtszeit von 2 Tagen auf 2 Stunden reduziert. Drill‑downs nach Region, Produkt und Kanal mit dynamischen Zielen.' },
-          cs2:{ title:'Automatisiertes Monatsende‑Paket', body:'Geplante Aktualisierung, PDF‑Exporte und Genehmigungen via Teams. 80% weniger manuelle Schritte.' },
-          cs3:{ title:'Inspection Power App', body:'Mobile App für Außendienstteams mit Offline‑Erfassung und Bildern. Sofortige Synchronisierung zu SharePoint/Dataverse.' }
+          title:'Beispielprojekte', sub:'Aktuelle Ergebnisse für KMU und Enterprise-Teams.',
+          cs1:{ title:'Sales-KPI-Dashboard', body:'Berichtszeit von 2 Tagen auf 2 Stunden reduziert. Drill-downs nach Region, Produkt und Kanal mit dynamischen Zielen.' },
+          cs2:{ title:'Automatisiertes Monatsende-Paket', body:'Geplante Aktualisierung, PDF-Exporte und Genehmigungen via Teams. 80% weniger manuelle Schritte.' },
+          cs3:{ title:'Inspection Power App', body:'Mobile App für Außendienstteams mit Offline-Erfassung und Bildern. Sofortige Synchronisierung zu SharePoint/Dataverse.' }
         },
         contact: {
           title:'Kontakt', sub:'Schreiben Sie uns kurz, was Sie erreichen möchten – wir antworten innerhalb eines Werktags.',
-          emailLabel:'E‑Mail', phoneLabel:'Telefon', locationLabel:'Standort',
+          emailLabel:'E-Mail', phoneLabel:'Telefon', locationLabel:'Standort',
           locationText:'Slavonski Brod, Kroatien • Remote in der EU',
-          emailUs:'E‑Mail senden', viewServices:'Leistungen ansehen', nocookies:'Keine Cookies. Kein Tracking. Nur E‑Mail oder Anruf.', companyDetails:'Firmendaten', companyLine1:'Quantara — Kleingewerbe', vat:'USt‑ID: (falls zutreffend)', hours:'Öffnungszeiten: Mo–Fr 09:00–17:00 CET'
+          emailUs:'E-Mail senden', viewServices:'Leistungen ansehen', nocookies:'Keine Cookies. Kein Tracking. Nur E-Mail oder Anruf.',
+          companyDetails:'Firmendaten', companyLine1:'Quantara — Kleingewerbe', vat:'USt-ID: (falls zutreffend)', hours:'Öffnungszeiten: Mo–Fr 09:00–17:00 CET'
         },
         footer:{ backToTop:'Nach oben ↑' }
       }
