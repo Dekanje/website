@@ -1,530 +1,613 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="hr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Quantara — Power BI, Automation & Business Apps</title>
-  <meta name="description" content="Quantara pomaže organizacijama izraditi Power BI nadzorne ploče, automatizirati procese pomoću Power Automatea te izgraditi lagane poslovne aplikacije na Power Platformi." />
-  <link rel="canonical" href="https://www.quantara.hr/" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Quantara — Excel, Power BI i Power Automate rješenja</title>
+<meta name="description" content="Quantara pretvara vaše podatke u jasne odluke. Napredni Excel, Power BI dashboardi i automatizacija procesa s Power Automate za hrvatske tvrtke i obrte." />
 
-  <!-- Favicons -->
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
-  <!-- Open Graph / Social -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.quantara.hr/" />
-  <meta property="og:title" content="Quantara — Power BI, Automation & Business Apps" />
-  <meta property="og:description" content="Dashboards. Automation. Apps. Practical Microsoft solutions for real business impact." />
-  <meta property="og:image" content="https://www.quantara.hr/og-image.png" />
-  <meta name="twitter:card" content="summary_large_image" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Quantara — Excel, Power BI i Power Automate rješenja" />
+<meta property="og:description" content="Vaši podaci, pretvoreni u jasne odluke. Napredni Excel, Power BI dashboardi i automatizacija procesa za hrvatske tvrtke i obrte." />
+<meta property="og:url" content="https://quantara.hr" />
+<meta property="og:image" content="https://quantara.hr/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Quantara — Excel, Power BI i Power Automate rješenja" />
+<meta name="twitter:description" content="Vaši podaci, pretvoreni u jasne odluke." />
+<meta name="twitter:image" content="https://quantara.hr/og-image.png" />
 
-  <!-- Schema.org JSON-LD: Organization -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Quantara",
-    "url": "https://www.quantara.hr/",
-    "logo": "https://www.quantara.hr/og-image.png",
-    "sameAs": [
-      "https://www.linkedin.com/company/quantara"
-    ],
-    "contactPoint": [{
-      "@type": "ContactPoint",
-      "contactType": "customer support",
-      "email": "info@quantara.hr",
-      "telephone": "+385955551455",
-      "areaServed": "HR, EU"
-    }]
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --ink:#0C0C0E;
+    --ink-2:#111114;
+    --surface:#16161A;
+    --surface-2:#1C1C21;
+    --line:rgba(236,232,223,0.08);
+    --line-strong:rgba(236,232,223,0.16);
+    --text:#ECE8DF;
+    --muted:#9A968C;
+    --muted-2:#6F6C64;
+    --accent:#E4A94F;
+    --accent-deep:#C98B2E;
+    --sage:#7FB5A6;
+    --accent-soft:rgba(228,169,79,0.12);
+    --maxw:1180px;
+    --ease:cubic-bezier(.22,.61,.36,1);
   }
-  </script>
 
-  <style>
-    /* ====== Design System (enterprise / light) ====== */
-    :root{
-      --bg:#f7f9fc;            /* light background */
-      --panel:#ffffff;          /* card background */
-      --brand:#1f3b79;          /* primary (darker blue) */
-      --brand-700:#162b59;      /* darker hover */
-      --text:#1f2937;           /* main text */
-      --muted:#4b5563;          /* secondary text */
-      --accent:#0ea5a5;         /* subtle accent (teal) */
-      --warn:#ffd166;
-      --maxw:1200px;
-      --radius:14px;
-      --shadow:0 10px 30px rgba(0,0,0,.10);
-      --shadow-soft:0 6px 18px rgba(0,0,0,.08);
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink);
+    color:var(--text);
+    font-family:'Hanken Grotesk',sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  /* grain overlay */
+  body::after{
+    content:"";
+    position:fixed;inset:0;
+    pointer-events:none;z-index:9999;
+    opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--accent);color:var(--ink)}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+  .mono{font-family:'JetBrains Mono',monospace;font-weight:500}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--accent);font-weight:500;
+    display:inline-flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--accent);opacity:.7}
+
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;line-height:1.04;letter-spacing:-.01em}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    transition:all .4s var(--ease);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:22px 28px;max-width:var(--maxw);margin:0 auto;
+    transition:padding .4s var(--ease);
+  }
+  header.scrolled{
+    background:rgba(12,12,14,.72);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  header.scrolled .nav{padding:14px 28px}
+  .logo{
+    font-family:'Fraunces',serif;font-weight:600;font-size:23px;
+    letter-spacing:-.02em;display:flex;align-items:center;gap:9px;
+  }
+  .logo .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 16px var(--accent)}
+  .nav-links{display:flex;align-items:center;gap:38px}
+  .nav-links a{
+    font-size:14.5px;color:var(--muted);transition:color .25s;position:relative;
+  }
+  .nav-links a:not(.btn):hover{color:var(--text)}
+  .nav-links a:not(.btn)::after{
+    content:"";position:absolute;left:0;bottom:-5px;height:1px;width:0;background:var(--accent);transition:width .3s var(--ease);
+  }
+  .nav-links a:not(.btn):hover::after{width:100%}
+  .btn{
+    background:var(--accent);color:var(--ink);
+    padding:11px 20px;border-radius:100px;font-weight:600;font-size:14.5px;
+    transition:transform .25s var(--ease),box-shadow .25s;
+    display:inline-block;border:none;cursor:pointer;
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(228,169,79,.28)}
+  .btn-ghost{
+    background:transparent;color:var(--text);border:1px solid var(--line-strong);
+  }
+  .btn-ghost:hover{border-color:var(--accent);box-shadow:none}
+  .menu-toggle{display:none;background:none;border:none;color:var(--text);cursor:pointer;font-size:24px}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;padding:188px 0 110px;overflow:hidden;
+  }
+  .hero-grid-bg{
+    position:absolute;inset:0;z-index:0;pointer-events:none;
+    background-image:
+      linear-gradient(var(--line) 1px,transparent 1px),
+      linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:54px 54px;
+    mask-image:radial-gradient(ellipse 80% 70% at 70% 30%,#000 0%,transparent 75%);
+    -webkit-mask-image:radial-gradient(ellipse 80% 70% at 70% 30%,#000 0%,transparent 75%);
+    opacity:.6;
+  }
+  .hero-glow{
+    position:absolute;top:-180px;right:-120px;width:620px;height:620px;z-index:0;
+    background:radial-gradient(circle,rgba(228,169,79,.16),transparent 62%);
+    filter:blur(20px);pointer-events:none;
+  }
+  .hero-inner{
+    position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;
+    gap:56px;align-items:center;
+  }
+  .hero-copy{max-width:600px}
+  .hero h1{font-size:clamp(40px,5.4vw,68px);margin:24px 0 0}
+  .hero h1 em{font-style:italic;color:var(--accent);font-weight:500}
+  .hero p.lead{
+    color:var(--muted);font-size:19px;margin-top:24px;max-width:500px;
+  }
+  .hero-cta{display:flex;gap:14px;margin-top:38px;flex-wrap:wrap}
+  .hero-stats{
+    display:flex;gap:40px;margin-top:54px;padding-top:30px;border-top:1px solid var(--line);
+  }
+  .hero-stats .num{font-family:'Fraunces',serif;font-size:32px;color:var(--text);font-weight:600}
+  .hero-stats .lbl{font-size:13px;color:var(--muted-2);margin-top:2px}
+
+  /* fade-in load */
+  .reveal-load{opacity:0;transform:translateY(22px);animation:rise .9s var(--ease) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+  .d1{animation-delay:.05s}.d2{animation-delay:.18s}.d3{animation-delay:.31s}
+  .d4{animation-delay:.44s}.d5{animation-delay:.57s}.d6{animation-delay:.7s}
+
+  /* ---------- DASHBOARD CARD ---------- */
+  .dash{
+    position:relative;background:linear-gradient(160deg,var(--surface),var(--ink-2));
+    border:1px solid var(--line-strong);border-radius:18px;padding:22px;
+    box-shadow:0 40px 80px -30px rgba(0,0,0,.7);
+    transform:perspective(1400px) rotateY(-7deg) rotateX(3deg);
+    transition:transform .6s var(--ease);
+  }
+  .dash:hover{transform:perspective(1400px) rotateY(-3deg) rotateX(1deg)}
+  .dash-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+  .dash-title{font-size:13px;color:var(--muted);font-family:'JetBrains Mono',monospace}
+  .dash-dots{display:flex;gap:6px}
+  .dash-dots span{width:9px;height:9px;border-radius:50%;background:var(--line-strong)}
+  .dash-dots span:first-child{background:var(--accent)}
+  .kpis{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
+  .kpi{background:var(--surface-2);border:1px solid var(--line);border-radius:11px;padding:13px 14px}
+  .kpi .k-lbl{font-size:11px;color:var(--muted-2);text-transform:uppercase;letter-spacing:.08em}
+  .kpi .k-val{font-family:'Fraunces',serif;font-size:24px;margin-top:4px;font-weight:600}
+  .kpi .k-val small{font-size:13px;color:var(--sage);font-family:'JetBrains Mono',monospace;margin-left:6px;font-weight:500}
+  .chart{
+    background:var(--surface-2);border:1px solid var(--line);border-radius:11px;
+    padding:16px 16px 12px;
+  }
+  .chart-top{display:flex;justify-content:space-between;font-size:11px;color:var(--muted-2);margin-bottom:14px;font-family:'JetBrains Mono',monospace}
+  .bars{display:flex;align-items:flex-end;gap:9px;height:96px}
+  .bar{
+    flex:1;background:linear-gradient(180deg,var(--accent),var(--accent-deep));
+    border-radius:4px 4px 2px 2px;transform-origin:bottom;transform:scaleY(0);
+    animation:grow 1s var(--ease) forwards;
+  }
+  .bar.alt{background:linear-gradient(180deg,#2E2E34,#222227)}
+  @keyframes grow{to{transform:scaleY(1)}}
+
+  /* ---------- SECTIONS ---------- */
+  section{position:relative}
+  .pad{padding:104px 0}
+  .sec-head{max-width:620px;margin-bottom:58px}
+  .sec-head h2{font-size:clamp(30px,3.8vw,46px);margin-top:18px}
+  .sec-head p{color:var(--muted);margin-top:18px;font-size:18px}
+
+  /* reveal on scroll */
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- SERVICES ---------- */
+  .services{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .svc{
+    background:var(--surface);border:1px solid var(--line);border-radius:16px;
+    padding:34px 32px;position:relative;overflow:hidden;
+    transition:border-color .35s,transform .35s var(--ease);
+  }
+  .svc::before{
+    content:"";position:absolute;inset:0;opacity:0;transition:opacity .4s;
+    background:radial-gradient(circle at 100% 0%,var(--accent-soft),transparent 55%);
+  }
+  .svc:hover{border-color:var(--line-strong);transform:translateY(-4px)}
+  .svc:hover::before{opacity:1}
+  .svc-ico{
+    width:50px;height:50px;border-radius:12px;display:grid;place-items:center;
+    background:var(--accent-soft);border:1px solid rgba(228,169,79,.25);margin-bottom:22px;
+  }
+  .svc-ico svg{width:24px;height:24px;stroke:var(--accent)}
+  .svc .num-tag{position:absolute;top:30px;right:32px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--muted-2)}
+  .svc h3{font-size:24px;margin-bottom:12px}
+  .svc p{color:var(--muted);font-size:15.5px}
+  .svc ul{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:8px}
+  .svc li{font-size:14px;color:var(--muted);display:flex;gap:10px;align-items:flex-start}
+  .svc li::before{content:"→";color:var(--accent);font-family:'JetBrains Mono',monospace;flex:none}
+
+  /* ---------- PROCESS ---------- */
+  .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .step{padding:36px 30px;border-right:1px solid var(--line);position:relative;transition:background .35s}
+  .step:last-child{border-right:none}
+  .step:hover{background:var(--surface)}
+  .step .s-num{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);margin-bottom:24px}
+  .step h3{font-size:20px;margin-bottom:10px}
+  .step p{color:var(--muted);font-size:14.5px}
+
+  /* ---------- VALUE / WHY ---------- */
+  .why{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .why-list{display:flex;flex-direction:column;gap:26px}
+  .why-item{display:flex;gap:18px}
+  .why-item .check{
+    flex:none;width:36px;height:36px;border-radius:9px;background:var(--accent-soft);
+    display:grid;place-items:center;border:1px solid rgba(228,169,79,.25);
+  }
+  .why-item .check svg{width:17px;height:17px;stroke:var(--accent)}
+  .why-item h3{font-size:18px;font-family:'Hanken Grotesk',sans-serif;font-weight:600;margin-bottom:4px;letter-spacing:0}
+  .why-item p{color:var(--muted);font-size:15px}
+  .why-visual{
+    background:linear-gradient(160deg,var(--surface),var(--ink-2));
+    border:1px solid var(--line);border-radius:18px;padding:36px;
+  }
+  .metric-row{display:flex;justify-content:space-between;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--line)}
+  .metric-row:last-child{border-bottom:none}
+  .metric-row .m-num{font-family:'Fraunces',serif;font-size:44px;font-weight:600;color:var(--text)}
+  .metric-row .m-num span{color:var(--accent)}
+  .metric-row .m-lbl{color:var(--muted);font-size:14.5px;text-align:right;max-width:180px}
+
+  /* ---------- CTA ---------- */
+  .cta-band{
+    background:linear-gradient(150deg,var(--surface),var(--ink-2));
+    border:1px solid var(--line-strong);border-radius:24px;
+    padding:72px 56px;text-align:center;position:relative;overflow:hidden;
+  }
+  .cta-band::before{
+    content:"";position:absolute;inset:0;opacity:.5;
+    background:radial-gradient(circle at 50% 0%,var(--accent-soft),transparent 60%);
+  }
+  .cta-band h2{font-size:clamp(30px,4vw,48px);position:relative;max-width:680px;margin:0 auto}
+  .cta-band p{color:var(--muted);margin:20px auto 36px;max-width:480px;position:relative;font-size:18px}
+  .cta-band .hero-cta{justify-content:center;position:relative}
+
+  /* ---------- CONTACT STRIP ---------- */
+  .contact-strip{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:48px}
+  .contact-card{
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px;
+    transition:border-color .3s;
+  }
+  .contact-card:hover{border-color:var(--accent)}
+  .contact-card .c-lbl{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted-2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
+  .contact-card .c-val{font-size:18px;color:var(--text)}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--line);padding:54px 0 40px;margin-top:104px}
+  .foot-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;margin-bottom:40px}
+  .foot-top .logo{font-size:26px}
+  .foot-tag{color:var(--muted);max-width:280px;margin-top:14px;font-size:15px}
+  .foot-cols{display:flex;gap:70px;flex-wrap:wrap}
+  .foot-col h4{font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted-2);margin-bottom:16px;font-weight:500}
+  .foot-col a{display:block;color:var(--muted);font-size:15px;margin-bottom:10px;transition:color .25s}
+  .foot-col a:hover{color:var(--accent)}
+  .foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:28px;border-top:1px solid var(--line);color:var(--muted-2);font-size:13px;flex-wrap:wrap;gap:14px}
+  .foot-bot .mono{font-size:12.5px}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:920px){
+    .hero-inner,.why{grid-template-columns:1fr;gap:48px}
+    .dash{transform:none;max-width:460px}
+    .dash:hover{transform:none}
+    .services,.process-grid,.contact-strip{grid-template-columns:1fr}
+    .step{border-right:none;border-bottom:1px solid var(--line)}
+    .step:last-child{border-bottom:none}
+    .why-visual{order:-1}
+  }
+  @media(max-width:680px){
+    body{font-size:16px}
+    .nav-links{
+      position:fixed;top:0;right:0;bottom:0;width:78%;max-width:320px;
+      background:var(--ink-2);border-left:1px solid var(--line);
+      flex-direction:column;align-items:flex-start;justify-content:center;
+      gap:28px;padding:40px;transform:translateX(100%);transition:transform .4s var(--ease);z-index:90;
     }
-    /* color scheme fixed to light/enterprise */
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
-      background:radial-gradient(1200px 600px at 70% -10%, rgba(31,59,121,.08), transparent), var(--bg);
-      color:var(--text)
-    }
-    a{color:var(--brand); text-decoration:none}
-    a:hover{color:var(--brand-700)}
-    img{max-width:100%; height:auto}
-
-    .container{max-width:var(--maxw); margin-inline:auto; padding:0 20px}
-
-    /* ====== Nav ====== */
-    .nav{position:sticky; top:0; z-index:50; background:var(--bg); border-bottom:1px solid rgba(0,0,0,.06);}
-    .nav-wrap{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
-    .brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.2px}
-    .brand svg{width:40px; height:40px}
-    .brand span{ font-weight:800; font-size: clamp(1.6rem, 3vw, 2.2rem); letter-spacing:.35px }
-    .menu{display:flex; gap:20px; align-items:center}
-    .menu a{color:var(--text); opacity:.85}
-    .menu a:hover{opacity:1}
-
-    .hamburger{display:none; background:none; border:none; color:var(--text); font-size:26px}
-    .mobile-menu{display:none} /* hide on desktop */
-    @media (max-width:860px){
-      .menu{display:none}
-      .hamburger{display:block}
-      .mobile-menu{display:none; flex-direction:column; gap:12px; padding-bottom:16px}
-      .mobile-menu a{color:var(--text)}
-      .mobile-menu.open{display:flex}
-    }
-
-    /* ====== Buttons ====== */
-    .btn{display:inline-flex; align-items:center; gap:8px; padding:12px 16px; border-radius:12px; font-weight:700; border:1px solid transparent}
-    .btn.primary{background:var(--brand); color:#fff; box-shadow:0 3px 10px rgba(31,59,121,.25)}
-    .btn.primary:hover{background:var(--brand-700); transform:translateY(-1px)}
-    .btn.secondary{background:transparent; border-color:rgba(0,0,0,.12); color:var(--text)}
-    .btn.secondary:hover{background:rgba(0,0,0,.04)}
-
-    /* ====== Hero ====== */
-    .hero{position:relative; overflow:hidden; background:linear-gradient(180deg, rgba(31,59,121,.04), transparent)}
-    .hero-inner{display:grid; grid-template-columns:1.25fr 1fr; gap:40px; align-items:center; padding:70px 0}
-    h1{font-size:clamp(2.1rem, 5vw, 3.4rem); line-height:1.1; margin:14px 0 10px}
-    .sub{color:var(--muted); font-size:1.1rem; max-width:55ch}
-    .hero-cta{display:flex; gap:12px; margin-top:22px; flex-wrap:wrap}
-    .hero-card{background:var(--panel); padding:22px; border-radius:var(--radius); box-shadow:var(--shadow-soft)}
-
-    @media (max-width:980px){ .hero-inner{grid-template-columns:1fr; padding:42px 0} }
-
-    /* ====== Logos (hidden) ====== */
-    .logos{display:none}
-
-    /* ====== Sections ====== */
-    section{padding:70px 0}
-    h2{font-size:clamp(1.6rem, 3.4vw, 2.2rem); margin:0 0 8px}
-    .section-sub{color:var(--muted); margin:0 0 24px}
-    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
-    @media (max-width:980px){ .grid{grid-template-columns:1fr 1fr} }
-    @media (max-width:640px){ .grid{grid-template-columns:1fr} }
-
-    .card{background:var(--panel); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow-soft); transition:transform .2s ease, box-shadow .2s ease}
-    .card:hover{transform:translateY(-3px)}
-    .card h3{margin:6px 0 8px}
-    .pill{display:inline-block; font-size:.8rem; padding:4px 8px; border-radius:999px; background:rgba(31,59,121,.10); color:var(--brand); font-weight:700}
-
-    /* ====== Process ====== */
-    .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:16px}
-    .step{background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:var(--radius); padding:20px}
-    .step .num{display:inline-grid; place-items:center; width:34px; height:34px; background:var(--brand); color:#fff; border-radius:50%; font-weight:800}
-    @media (max-width:980px){ .steps{grid-template-columns:1fr 1fr} }
-    @media (max-width:640px){ .steps{grid-template-columns:1fr} }
-
-    /* ====== Case Studies ====== */
-    .cs-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
-    .cs{background:var(--panel); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-soft)}
-    .cs .img{aspect-ratio:16/9; background:linear-gradient(135deg, rgba(31,59,121,.10), rgba(14,165,165,.15))}
-    .cs .txt{padding:16px}
-    @media (max-width:980px){ .cs-grid{grid-template-columns:1fr 1fr} }
-    @media (max-width:640px){ .cs-grid{grid-template-columns:1fr} }
-
-    /* ====== Contact ====== */
-    .contact-card{display:grid; grid-template-columns:1.2fr 1fr; gap:24px}
-    .contact-box{background:var(--panel); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow-soft)}
-    .contact-list{list-style:none; padding:0; margin:0}
-    .contact-list li{margin:10px 0}
-    .badge{display:inline-block; padding:3px 8px; background:rgba(0,0,0,.06); border-radius:8px; color:var(--muted); font-size:.85rem}
-    @media (max-width:980px){ .contact-card{grid-template-columns:1fr} }
-
-    /* ====== Footer ====== */
-    footer{border-top:1px solid rgba(0,0,0,.06); padding:26px 0; color:var(--muted)}
-    .foot{display:flex; gap:16px; align-items:center; justify-content:space-between; flex-wrap:wrap}
-  </style>
+    .nav-links.open{transform:none}
+    .nav-links a:not(.btn){font-size:20px}
+    .menu-toggle{display:block;z-index:95}
+    .hero{padding:140px 0 80px}
+    .hero-stats{gap:26px;flex-wrap:wrap}
+    .cta-band{padding:48px 26px}
+    .metric-row .m-num{font-size:34px}
+    .foot-bot{flex-direction:column;align-items:flex-start}
+  }
+</style>
 </head>
 <body>
-  <!-- ====== Navigation ====== -->
-  <nav class="nav" aria-label="Primary">
-    <div class="container nav-wrap">
-      <a class="brand" href="#" aria-label="Quantara homepage">
-        <!-- Modern Q logo -->
-        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
-          <defs>
-            <linearGradient id="qGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#1f3b79"/>
-              <stop offset="1" stop-color="#0ea5a5"/>
-            </linearGradient>
-          </defs>
-          <circle cx="28" cy="28" r="18" fill="none" stroke="url(#qGrad)" stroke-width="6"/>
-          <path d="M38 38 L56 56" stroke="url(#qGrad)" stroke-width="6" stroke-linecap="round"/>
-        </svg>
-        <span>Quantara</span>
-      </a>
 
-      <div class="menu" role="menubar">
-        <a href="#services" role="menuitem"><span data-i18n="nav.services">Usluge</span></a>
-        <a href="#process" role="menuitem"><span data-i18n="nav.process">Proces</span></a>
-        <a href="#work" role="menuitem"><span data-i18n="nav.work">Projekti</span></a>
-        <a href="#contact" role="menuitem"><span data-i18n="nav.contact">Kontakt</span></a>
-        <select id="langSwitch" aria-label="Language" style="background:transparent;border:1px solid rgba(0,0,0,.15);color:var(--text);padding:8px 10px;border-radius:10px">
-          <option value="en">EN</option>
-          <option value="hr" selected>HR</option>
-          <option value="de">DE</option>
-        </select>
-      </div>
-
-      <button class="hamburger" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">☰</button>
+<!-- ============ NAV ============ -->
+<header id="header">
+  <nav class="nav">
+    <a href="#top" class="logo"><span class="dot"></span>Quantara</a>
+    <div class="nav-links" id="navlinks">
+      <a href="#usluge">Usluge</a>
+      <a href="#proces">Kako radim</a>
+      <a href="#rezultati">Rezultati</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="#kontakt" class="btn">Zatraži ponudu</a>
     </div>
-
-    <div class="container mobile-menu" id="mobileMenu">
-      <a href="#services"><span data-i18n="nav.services">Usluge</span></a>
-      <a href="#process"><span data-i18n="nav.process">Proces</span></a>
-      <a href="#work"><span data-i18n="nav.work">Projekti</span></a>
-      <a href="#contact"><span data-i18n="nav.contact">Kontakt</span></a>
-      <div>
-        <select id="langSwitchMobile" aria-label="Language">
-          <option value="en">EN</option>
-          <option value="hr" selected>HR</option>
-          <option value="de">DE</option>
-        </select>
-      </div>
-    </div>
+    <button class="menu-toggle" id="menutoggle" aria-label="Izbornik">☰</button>
   </nav>
+</header>
 
-  <!-- ====== Hero ====== -->
-  <header class="hero">
-    <div class="container hero-inner">
-      <div>
-        <h1 data-i18n="hero.title">Rješenja temeljena na podacima koja pokreću vaše poslovanje naprijed</h1>
-        <p class="sub" data-i18n="hero.sub">Dizajniramo jasne dashboarde, automatiziramo ručne poslove i izrađujemo lagane aplikacije na Microsoft Power Platformi — kako bi vaš tim više vremena ulagao u učinak, a manje u rutinu.</p>
-        <div class="hero-cta">
-          <a class="btn primary" href="#contact"><span data-i18n="hero.ctaPrimary">Kontaktirajte nas</span></a>
-          <a class="btn secondary" href="#work"><span data-i18n="hero.ctaSecondary">Pogledajte primjere projekata</span></a>
-        </div>
-      </div>
-      <div>
-        <div class="hero-card">
-          <strong data-i18n="hero.cardTitle">Što isporučujemo</strong>
-          <ul>
-            <li><span data-i18n="hero.deliver1">Upravljački KPI dashboardi u Power BI-ju</span></li>
-            <li><span data-i18n="hero.deliver2">Automatsko osvježavanje i konsolidacija podataka</span></li>
-            <li><span data-i18n="hero.deliver3">Tijekovi odobravanja u Power Automateu</span></li>
-            <li><span data-i18n="hero.deliver4">Power Apps za terenske i back-office timove</span></li>
-          </ul>
-          <span class="badge">Microsoft 365 • SharePoint • SQL • APIs • Excel</span>
-        </div>
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <span class="eyebrow reveal-load d1">Digitalne usluge i automatizacija</span>
+      <h1 class="reveal-load d2">Vaši podaci,<br>pretvoreni u <em>jasne odluke</em>.</h1>
+      <p class="lead reveal-load d3">
+        Quantara gradi napredne Excel alate, interaktivne Power BI dashboarde i
+        automatizirane procese koji vašoj tvrtki štede sate ručnog rada svaki tjedan.
+      </p>
+      <div class="hero-cta reveal-load d4">
+        <a href="#kontakt" class="btn">Dogovori razgovor</a>
+        <a href="#usluge" class="btn btn-ghost">Pogledaj usluge</a>
       </div>
     </div>
-  </header>
 
-  <!-- Logos (hidden for now) -->
-  <div class="container logos" aria-label="Trusted by"></div>
-
-  <main>
-    <!-- ====== Services ====== -->
-    <section id="services" class="container">
-      <h2 data-i18n="services.title">Usluge</h2>
-      <p class="section-sub" data-i18n="services.sub">Praktični, na rezultate usmjereni projekti — brza isporuka i prilagođeno vašem timu.</p>
-      <div class="grid">
-        <article class="card">
-          <span class="pill" data-i18n="services.pill.powerbi">Power BI</span>
-          <h3 data-i18n="services.card1.title">Upravljački dashboardi</h3>
-          <p data-i18n="services.card1.body">Jedan izvor istine za KPI-eve i ad-hoc analize. Modeliranje podataka, DAX mjere, RLS, zakazano osvježavanje i upravljanje.</p>
-        </article>
-        <article class="card">
-          <span class="pill" data-i18n="services.pill.automation">Automatizacija</span>
-          <h3 data-i18n="services.card2.title">Automatizirani izvještaji</h3>
-          <p data-i18n="services.card2.body">Automatizirajte ručne korake uz Power Automate: prikupljanje podataka, odobrenja, e-mail obavijesti i izvoze. Integracije sa SharePointom, Excelom i API-jima.</p>
-        </article>
-        <article class="card">
-          <span class="pill" data-i18n="services.pill.powerapps">Power Apps</span>
-          <h3 data-i18n="services.card3.title">Lagane poslovne aplikacije</h3>
-          <p data-i18n="services.card3.body">Od tablice do aplikacije. Jednostavna sučelja za teren i ured — sigurno i spremno za mobilne uređaje.</p>
-        </article>
-        <article class="card">
-          <span class="pill" data-i18n="services.pill.data">Podaci</span>
-          <h3 data-i18n="services.card4.title">Data strategija i arhitektura</h3>
-          <p data-i18n="services.card4.body">Mapiranje izvora, pravila kvalitete i pragmatičan plan. Krenite malo, iterirajte brzo i skalirajte s povjerenjem.</p>
-        </article>
-        <article class="card">
-          <span class="pill" data-i18n="services.pill.training">Edukacija</span>
-          <h3 data-i18n="services.card5.title">Obuka i podrška timu</h3>
-          <p data-i18n="services.card5.body">Praktična Power BI i Power Platform edukacija na vašim stvarnim podacima i slučajevima.</p>
-        </article>
-        <article class="card">
-          <span class="pill" data-i18n="services.pill.support">Podrška</span>
-          <h3 data-i18n="services.card6.title">Održavanje</h3>
-          <p data-i18n="services.card6.body">Raspoloživi sati za dorade, ispravke podataka i nove značajke — bez dugoročnih obveza.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- ====== Process ====== -->
-    <section id="process" class="container">
-      <h2 data-i18n="process.title">Kako radimo</h2>
-      <p class="section-sub" data-i18n="process.sub">Jednostavan proces u 4 koraka s naglaskom na jasnoću i brzinu.</p>
-      <div class="steps">
-        <div class="step"><span class="num">1</span><h3 data-i18n="process.s1.title">Upoznavanje</h3><p data-i18n="process.s1.body">Kratki poziv za usklađivanje ciljeva, izvora podataka i kriterija uspjeha.</p></div>
-        <div class="step"><span class="num">2</span><h3 data-i18n="process.s2.title">Dizajn</h3><p data-i18n="process.s2.body">Mapiramo model podataka i skiciramo tokove dashboarda/aplikacije po vašem procesu.</p></div>
-        <div class="step"><span class="num">3</span><h3 data-i18n="process.s3.title">Izrada</h3><p data-i18n="process.s3.body">Brze iteracije na stvarnim podacima. Tjedni pregled i demo.</p></div>
-        <div class="step"><span class="num">4</span><h3 data-i18n="process.s4.title">Puštanje u rad</h3><p data-i18n="process.s4.body">Upravljanje, dokumentacija i edukacija — da rješenje zaživi.</p></div>
-      </div>
-    </section>
-
-    <!-- ====== Work / Case Studies ====== -->
-    <section id="work" class="container">
-      <h2 data-i18n="work.title">Primjeri projekata</h2>
-      <p class="section-sub" data-i18n="work.sub">Nedavni rezultati za male, srednje i velike timove.</p>
-      <div class="cs-grid">
-        <article class="cs">
-          <div class="img" role="img" aria-label="Sales performance dashboard"></div>
-          <div class="txt"><h3 data-i18n="work.cs1.title">Prodajni KPI dashboard</h3><p data-i18n="work.cs1.body">Izvještavanje brže s 2 dana na 2 sata. Drill-down po regiji, proizvodu i kanalu.</p></div>
-        </article>
-        <article class="cs">
-          <div class="img" role="img" aria-label="Automation workflow"></div>
-          <div class="txt"><h3 data-i18n="work.cs2.title">Automatizirani mjesečni paket</h3><p data-i18n="work.cs2.body">Zakazano osvježavanje, PDF izvozi i odobrenja u Teams — 80% manje ručnog rada.</p></div>
-        </article>
-        <article class="cs">
-          <div class="img" role="img" aria-label="Operations app"></div>
-          <div class="txt"><h3 data-i18n="work.cs3.title">Inspection Power App</h3><p data-i18n="work.cs3.body">Mobilna aplikacija s offline unosom i slikama. Brza sinkronizacija na SharePoint/Dataverse.</p></div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ====== Contact ====== -->
-    <section id="contact" class="container">
-      <h2 data-i18n="contact.title">Kontakt</h2>
-      <p class="section-sub" data-i18n="contact.sub">Ukratko nam napišite što želite postići — odgovaramo unutar 1 radnog dana.</p>
-      <div class="contact-card">
-        <div class="contact-box">
-          <ul class="contact-list">
-            <li><strong><span data-i18n="contact.emailLabel">E-mail</span>:</strong> <a href="mailto:info@quantara.hr">info@quantara.hr</a></li>
-            <li><strong><span data-i18n="contact.phoneLabel">Telefon</span>:</strong> <a href="tel:+385955551455">095 555 1455</a></li>
-            <li><strong><span data-i18n="contact.locationLabel">Lokacija</span>:</strong> <span data-i18n="contact.locationText">Slavonski Brod, Hrvatska • Usluga na daljinu u EU</span></li>
-          </ul>
-          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
-            <a class="btn primary" href="mailto:info@quantara.hr?subject=Inquiry"><span data-i18n="contact.emailUs">Pošaljite nam e-mail</span></a>
-            <a class="btn secondary" href="#services"><span data-i18n="contact.viewServices">Pogledaj usluge</span></a>
+    <!-- faux dashboard -->
+    <div class="reveal-load d6">
+      <div class="dash">
+        <div class="dash-head">
+          <span class="dash-title">prodaja_pregled.pbix</span>
+          <div class="dash-dots"><span></span><span></span><span></span></div>
+        </div>
+        <div class="kpis">
+          <div class="kpi"><div class="k-lbl">Prihod (Q)</div><div class="k-val">€184k <small>▲ 12%</small></div></div>
+          <div class="kpi"><div class="k-lbl">Marža</div><div class="k-val">31.4<small>▲ 2.1</small></div></div>
+        </div>
+        <div class="chart">
+          <div class="chart-top"><span>Prihod po mjesecu</span><span>2025</span></div>
+          <div class="bars">
+            <div class="bar alt" style="height:42%;animation-delay:.6s"></div>
+            <div class="bar alt" style="height:58%;animation-delay:.68s"></div>
+            <div class="bar alt" style="height:50%;animation-delay:.76s"></div>
+            <div class="bar" style="height:72%;animation-delay:.84s"></div>
+            <div class="bar alt" style="height:65%;animation-delay:.92s"></div>
+            <div class="bar" style="height:88%;animation-delay:1s"></div>
+            <div class="bar" style="height:100%;animation-delay:1.08s"></div>
           </div>
-          <p class="section-sub" style="margin-top:12px" data-i18n="contact.nocookies">Bez kolačića. Bez praćenja. Samo e-mail ili poziv.</p>
-        </div>
-        <div class="contact-box">
-          <strong data-i18n="contact.companyDetails">Podaci o tvrtki</strong>
-          <p>
-            <span data-i18n="contact.companyLine1">Quantara — Paušalni obrt</span><br/>
-            <span data-i18n="contact.vat">PDV ID: (po potrebi)</span><br/>
-            <span data-i18n="contact.hours">Radno vrijeme: Pon–Pet 09:00–17:00 CET</span>
-          </p>
-          <span class="badge">GDPR-friendly • Microsoft Partner ecosystem</span>
         </div>
       </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container foot">
-      <small>© <span id="year"></span> Quantara. All rights reserved.</small>
-      <small><a href="#" onclick="window.scrollTo({top:0, behavior:'smooth'})"><span data-i18n="footer.backToTop">Na vrh ↑</span></a></small>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    // Mobile menu toggle
-    function toggleMenu(){
-      const m = document.getElementById('mobileMenu');
-      const btn = document.querySelector('.hamburger');
-      const open = m.classList.toggle('open');
-      btn.setAttribute('aria-expanded', String(open));
-    }
+<!-- ============ USLUGE ============ -->
+<section class="pad" id="usluge">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Što radim</span>
+      <h2>Usluge koje rade za vas</h2>
+      <p>Od jedne kompleksne tablice do automatiziranog izvještavanja za cijeli tim — gradim rješenja prilagođena vašim procesima.</p>
+    </div>
 
-    // Set current year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
+    <div class="services">
+      <article class="svc reveal">
+        <span class="num-tag">01</span>
+        <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
+        <h3>Napredni Excel</h3>
+        <p>Tablice koje računaju umjesto vas — bez ručnog kopiranja i grešaka.</p>
+        <ul>
+          <li>Dinamičke formule i Power Query modeli</li>
+          <li>Automatizirani izvještaji i predlošci</li>
+          <li>Čišćenje i objedinjavanje podataka</li>
+        </ul>
+      </article>
 
-    // ====== Translations ======
-    const i18n = {
-      en: {
-        meta: { title: 'Quantara — Power BI, Automation & Business Apps', description: 'Quantara helps organizations build Power BI dashboards, automate processes with Power Automate, and deliver lightweight business apps on Microsoft Power Platform.' },
-        nav: { services:'Services', process:'Process', work:'Work', contact:'Contact', cta:'Contact', language:'Language' },
-        hero: {
-          kicker:'Power BI • Automation • Power Apps',
-          title:'Data-driven solutions that move your business forward',
-          sub:'We design clear dashboards, automate manual work, and build lightweight apps on Microsoft Power Platform—so your team spends more time on impact, not busywork.',
-          ctaPrimary:'Contact us', ctaSecondary:'See example projects',
-          stat1:'faster reporting', stat2:'from spreadsheet to app',
-          deliver1:'Executive KPI dashboards in Power BI',
-          deliver2:'Automated refresh & data consolidation',
-          deliver3:'Approval workflows in Power Automate',
-          deliver4:'Power Apps for field & back-office teams',
-          cardTitle:'What we deliver'
-        },
-        services: {
-          title:'Services', sub:'Practical, outcome-focused projects—delivered fast and made for your team.',
-          pill:{ powerbi:'Power BI', automation:'Automation', powerapps:'Power Apps', data:'Data', training:'Training', support:'Support' },
-          card1:{ title:'Executive Dashboards', body:'Single source of truth for KPIs and ad-hoc analysis. Data modeling, DAX measures, Row-Level Security, scheduled refresh, and governance.' },
-          card2:{ title:'Workflow & Reporting', body:'Automate manual steps with Power Automate: data collection, approvals, email alerts, and exports. Integrations with SharePoint, Excel, and APIs.' },
-          card3:{ title:'Lightweight Business Apps', body:'From spreadsheet to app. Simple UIs for field operations, audits, requests, or inventory—secure and mobile-ready.' },
-          card4:{ title:'Data Strategy & Architecture', body:'Source mapping, data quality rules, and a pragmatic roadmap. Start small, iterate quickly, and scale with confidence.' },
-          card5:{ title:'Enablement & Coaching', body:'Hands-on Power BI and Power Platform training tailored to your real datasets and use-cases.' },
-          card6:{ title:'Care Plans', body:'On-demand hours for enhancements, data fixes, and new features—without long contracts.' }
-        },
-        process: {
-          title:'How we work', sub:'A simple 4-step process focused on clarity and speed.',
-          s1:{ title:'Discovery', body:'Short call to align on goals, data sources, and success criteria.' },
-          s2:{ title:'Design', body:'We map the data model and sketch dashboard/app flows that match your process.' },
-          s3:{ title:'Build', body:'Rapid iterations with real data. Weekly check-ins and demos.' },
-          s4:{ title:'Launch', body:'Governance, documentation, and enablement—so the solution sticks.' }
-        },
-        work: {
-          title:'Example Projects', sub:'Recent outcomes delivered for SMEs and enterprise teams.',
-          cs1:{ title:'Sales KPI Dashboard', body:'Cut reporting time from 2 days to 2 hours. Drill-downs by region, product, and channel with dynamic targets.' },
-          cs2:{ title:'Automated Month-End Pack', body:'Scheduled data refresh, PDF exports, and approvals via Teams. Reduced manual steps by 80%.' },
-          cs3:{ title:'Inspection Power App', body:'Mobile app for field teams with offline capture and image attachments. Instant sync to SharePoint/Dataverse.' }
-        },
-        contact: {
-          title:'Contact', sub:'Tell us briefly what you want to achieve—we’ll reply within 1 business day.',
-          emailLabel:'Email', phoneLabel:'Phone', locationLabel:'Location',
-          locationText:'Slavonski Brod, Croatia • Serving EU remotely',
-          emailUs:'Email us', viewServices:'View services', nocookies:'No cookies. No tracking. Just email or call.',
-          companyDetails:'Company details', companyLine1:'Quantara — Sole proprietorship', vat:'VAT: (add if/when applicable)', hours:'Working hours: Mon–Fri 09:00–17:00 CET'
-        },
-        footer:{ backToTop:'Back to top ↑' }
-      },
-      hr: {
-        meta: { title: 'Quantara — Power BI, Automatizacija i Poslovne Aplikacije', description: 'Quantara pomaže organizacijama izraditi Power BI nadzorne ploče, automatizirati procese pomoću Power Automatea te izgraditi lagane poslovne aplikacije na Power Platformi.' },
-        nav: { services:'Usluge', process:'Proces', work:'Projekti', contact:'Kontakt', cta:'Kontakt', language:'Jezik' },
-        hero: {
-          kicker:'Power BI • Automatizacija • Power Apps',
-          title:'Rješenja temeljena na podacima koja pokreću vaše poslovanje naprijed',
-          sub:'Dizajniramo jasne dashboarde, automatiziramo ručne poslove i izrađujemo lagane aplikacije na Microsoft Power Platformi — kako bi vaš tim više vremena ulagao u učinak, a manje u rutinu.',
-          ctaPrimary:'Kontaktirajte nas', ctaSecondary:'Pogledajte primjere projekata',
-          stat1:'brže izvještavanje', stat2:'od Excela do aplikacije',
-          deliver1:'Upravljački KPI dashboardi u Power BI-ju',
-          deliver2:'Automatsko osvježavanje i konsolidacija podataka',
-          deliver3:'Tijekovi odobravanja u Power Automateu',
-          deliver4:'Power Apps za terenske i back-office timove',
-          cardTitle:'Što isporučujemo'
-        },
-        services: {
-          title:'Usluge', sub:'Praktični, na rezultate usmjereni projekti — brza isporuka i prilagođeno vašem timu.',
-          pill:{ powerbi:'Power BI', automation:'Automatizacija', powerapps:'Power Apps', data:'Podaci', training:'Edukacija', support:'Podrška' },
-          card1:{ title:'Upravljački dashboardi', body:'Jedan izvor istine za KPI-eve i ad-hoc analize. Modeliranje podataka, DAX mjere, RLS, zakazano osvježavanje i upravljanje.' },
-          card2:{ title:'Automatizirani izvještaji', body:'Automatizirajte ručne korake uz Power Automate: prikupljanje podataka, odobrenja, e-mail obavijesti i izvoze. Integracije sa SharePointom, Excelom i API-jima.' },
-          card3:{ title:'Lagane poslovne aplikacije', body:'Od tablice do aplikacije. Jednostavna sučelja za teren i ured — sigurno i spremno za mobilne uređaje.' },
-          card4:{ title:'Data strategija i arhitektura', body:'Mapiranje izvora, pravila kvalitete i pragmatičan plan. Krenite malo, iterirajte brzo i skalirajte s povjerenjem.' },
-          card5:{ title:'Obuka i podrška timu', body:'Praktična Power BI i Power Platform edukacija na vašim stvarnim podacima i slučajevima.' },
-          card6:{ title:'Održavanje', body:'Raspoloživi sati za dorade, ispravke podataka i nove značajke — bez dugoročnih obveza.' }
-        },
-        process: {
-          title:'Kako radimo', sub:'Jednostavan proces u 4 koraka s naglaskom na jasnoću i brzinu.',
-          s1:{ title:'Upoznavanje', body:'Kratki poziv za usklađivanje ciljeva, izvora podataka i kriterija uspjeha.' },
-          s2:{ title:'Dizajn', body:'Mapiramo model podataka i skiciramo tokove dashboarda/aplikacije po vašem procesu.' },
-          s3:{ title:'Izrada', body:'Brze iteracije na stvarnim podacima. Tjedni pregled i demo.' },
-          s4:{ title:'Puštanje u rad', body:'Upravljanje, dokumentacija i edukacija — da rješenje zaživi.' }
-        },
-        work: {
-          title:'Primjeri projekata', sub:'Nedavni rezultati za male, srednje i velike timove.',
-          cs1:{ title:'Prodajni KPI dashboard', body:'Vrijeme izrade izvješća smanjeno s 2 dana na 2 sata. Detalji po regiji, proizvodu i kanalu uz dinamičke ciljeve.' },
-          cs2:{ title:'Automatizirani mjesečni paket', body:'Zakazano osvježavanje, PDF izvozi i odobrenja kroz Teams. 80% manje ručnog rada.' },
-          cs3:{ title:'Inspection Power App', body:'Mobilna aplikacija za terenske timove s offline unosom i slikama. Trenutna sinkronizacija na SharePoint/Dataverse.' }
-        },
-        contact: {
-          title:'Kontakt', sub:'Ukratko nam napišite što želite postići — odgovaramo unutar 1 radnog dana.',
-          emailLabel:'E-mail', phoneLabel:'Telefon', locationLabel:'Lokacija',
-          locationText:'Slavonski Brod, Hrvatska • Usluga na daljinu u EU',
-          emailUs:'Pošaljite nam e-mail', viewServices:'Pogledaj usluge', nocookies:'Bez kolačića. Bez praćenja. Samo e-mail ili poziv.',
-          companyDetails:'Podaci o tvrtki', companyLine1:'Quantara — Paušalni obrt', vat:'PDV ID: (po potrebi)', hours:'Radno vrijeme: Pon–Pet 09:00–17:00 CET'
-        },
-        footer:{ backToTop:'Na vrh ↑' }
-      },
-      de: {
-        meta: { title: 'Quantara — Power BI, Automatisierung & Business Apps', description: 'Quantara hilft Organisationen, Power-BI-Dashboards zu erstellen, Prozesse mit Power Automate zu automatisieren und schlanke Business-Apps auf der Microsoft Power Platform zu liefern.' },
-        nav: { services:'Leistungen', process:'Vorgehen', work:'Projekte', contact:'Kontakt', cta:'Kontakt', language:'Sprache' },
-        hero: {
-          kicker:'Power BI • Automatisierung • Power Apps',
-          title:'Datengetriebene Lösungen, die Ihr Unternehmen voranbringen',
-          sub:'Wir entwerfen klare Dashboards, automatisieren manuelle Arbeit und bauen schlanke Apps auf der Microsoft Power Platform – damit Ihr Team mehr Zeit für Wirkung und weniger für Routine aufwendet.',
-          ctaPrimary:'Kontakt aufnehmen', ctaSecondary:'Projektbeispiele ansehen',
-          stat1:'schnelleres Reporting', stat2:'von Excel zur App',
-          deliver1:'Executive-KPI-Dashboards in Power BI',
-          deliver2:'Automatisches Refresh & Datenkonsolidierung',
-          deliver3:'Genehmigungs-Workflows in Power Automate',
-          deliver4:'Power Apps für Field- & Backoffice-Teams',
-          cardTitle:'Unsere Leistungen'
-        },
-        services: {
-          title:'Leistungen', sub:'Pragmatische, ergebnisorientierte Projekte – schnell geliefert und auf Ihr Team zugeschnitten.',
-          pill:{ powerbi:'Power BI', automation:'Automatisierung', powerapps:'Power Apps', data:'Daten', training:'Training', support:'Support' },
-          card1:{ title:'Management-Dashboards', body:'Eine verlässliche Datenbasis für KPIs und Ad-hoc-Analysen. Datenmodell, DAX-Measures, RLS, geplante Aktualisierung und Governance.' },
-          card2:{ title:'Workflows & Reporting', body:'Automatisieren Sie manuelle Schritte mit Power Automate: Datenerfassung, Genehmigungen, E-Mail-Benachrichtigungen und Exporte. Integrationen mit SharePoint, Excel und APIs.' },
-          card3:{ title:'Schlanke Business-Apps', body:'Von der Tabelle zur App. Einfache Oberflächen für Außendienst und Backoffice – sicher und mobilbereit.' },
-          card4:{ title:'Datenstrategie & Architektur', body:'Quellen-Mapping, Qualitätsregeln und ein pragmatischer Fahrplan. Klein starten, schnell iterieren, sicher skalieren.' },
-          card5:{ title:'Enablement & Training', body:'Praxisnahe Power-BI- und Power-Platform-Schulungen mit Ihren echten Daten und Use-Cases.' },
-          card6:{ title:'Care-Pläne', body:'Bedarfsorientierte Stunden für Erweiterungen, Datenkorrekturen und neue Features – ohne lange Bindung.' }
-        },
-        process: {
-          title:'So arbeiten wir', sub:'Ein einfacher 4-Schritte-Prozess mit Fokus auf Klarheit und Tempo.',
-          s1:{ title:'Discovery', body:'Kurzes Gespräch zu Zielen, Datenquellen und Erfolgskriterien.' },
-          s2:{ title:'Design', body:'Wir skizzieren Datenmodell und Dashboard/App-Flows passend zu Ihrem Prozess.' },
-          s3:{ title:'Build', body:'Schnelle Iterationen mit Echtdaten. Wöchentliche Check-ins und Demos.' },
-          s4:{ title:'Go-Live', body:'Governance, Dokumentation und Enablement – damit die Lösung wirkt.' }
-        },
-        work: {
-          title:'Beispielprojekte', sub:'Aktuelle Ergebnisse für KMU und Enterprise-Teams.',
-          cs1:{ title:'Sales-KPI-Dashboard', body:'Berichtszeit von 2 Tagen auf 2 Stunden reduziert. Drill-downs nach Region, Produkt und Kanal mit dynamischen Zielen.' },
-          cs2:{ title:'Automatisiertes Monatsende-Paket', body:'Geplante Aktualisierung, PDF-Exporte und Genehmigungen via Teams. 80% weniger manuelle Schritte.' },
-          cs3:{ title:'Inspection Power App', body:'Mobile App für Außendienstteams mit Offline-Erfassung und Bildern. Sofortige Synchronisierung zu SharePoint/Dataverse.' }
-        },
-        contact: {
-          title:'Kontakt', sub:'Schreiben Sie uns kurz, was Sie erreichen möchten – wir antworten innerhalb eines Werktags.',
-          emailLabel:'E-Mail', phoneLabel:'Telefon', locationLabel:'Standort',
-          locationText:'Slavonski Brod, Kroatien • Remote in der EU',
-          emailUs:'E-Mail senden', viewServices:'Leistungen ansehen', nocookies:'Keine Cookies. Kein Tracking. Nur E-Mail oder Anruf.',
-          companyDetails:'Firmendaten', companyLine1:'Quantara — Kleingewerbe', vat:'USt-ID: (falls zutreffend)', hours:'Öffnungszeiten: Mo–Fr 09:00–17:00 CET'
-        },
-        footer:{ backToTop:'Nach oben ↑' }
-      }
-    };
+      <article class="svc reveal">
+        <span class="num-tag">02</span>
+        <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6"/><rect x="12" y="7" width="3" height="10"/><rect x="17" y="13" width="3" height="4"/></svg></div>
+        <h3>Power BI dashboardi</h3>
+        <p>Interaktivni izvještaji koji na jednom mjestu pokazuju kako posao zaista stoji.</p>
+        <ul>
+          <li>Data modeliranje i DAX mjere</li>
+          <li>Dizajn po mjeri vašeg brenda</li>
+          <li>Automatsko osvježavanje podataka</li>
+        </ul>
+      </article>
 
-    function setLang(lang){
-      const dict = i18n[lang] || i18n.hr;
-      document.documentElement.lang = lang;
-      document.title = dict.meta.title;
-      const md = document.querySelector('meta[name="description"]');
-      if(md) md.setAttribute('content', dict.meta.description);
+      <article class="svc reveal">
+        <span class="num-tag">03</span>
+        <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></div>
+        <h3>Power Automate</h3>
+        <p>Tihi pomoćnici koji rade dok vi radite važnije stvari.</p>
+        <ul>
+          <li>Automatizacija ponavljajućih zadataka</li>
+          <li>Povezivanje aplikacija (Outlook, SharePoint, Teams)</li>
+          <li>Obavijesti i odobravanja po pravilima</li>
+        </ul>
+      </article>
 
-      document.querySelectorAll('[data-i18n]').forEach(el=>{
-        const path = el.getAttribute('data-i18n').split('.');
-        let val = dict; path.forEach(k=>{ val = val && val[k]; });
-        if(typeof val === 'string'){ el.textContent = val; }
-      });
-      const s1 = document.getElementById('langSwitch');
-      const s2 = document.getElementById('langSwitchMobile');
-      if(s1) s1.value = lang; if(s2) s2.value = lang;
-      localStorage.setItem('lang', lang);
-    }
+      <article class="svc reveal">
+        <span class="num-tag">04</span>
+        <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h20v14H2zM8 21h8M12 17v4"/></svg></div>
+        <h3>Konzalting i edukacija</h3>
+        <p>Analiza vaših podataka i prijenos znanja — da tim postane samostalan.</p>
+        <ul>
+          <li>Pregled i optimizacija postojećih procesa</li>
+          <li>Radionice za Excel i Power BI</li>
+          <li>Savjetovanje pri uvođenju alata</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
 
-    function initLang(){
-      const stored = localStorage.getItem('lang');
-      const preferred = stored || 'hr';
-      setLang(preferred);
-      const s1 = document.getElementById('langSwitch');
-      const s2 = document.getElementById('langSwitchMobile');
-      [s1,s2].forEach(s=>{ if(s) s.addEventListener('change', e=> setLang(e.target.value)); });
-    }
-    document.addEventListener('DOMContentLoaded', initLang);
-  </script>
+<!-- ============ PROCES ============ -->
+<section class="pad" id="proces">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Kako radim</span>
+      <h2>Jednostavan put do rješenja</h2>
+      <p>Transparentno, korak po korak — bez tehničkog žargona i bez iznenađenja.</p>
+    </div>
+
+    <div class="process-grid reveal">
+      <div class="step">
+        <div class="s-num">01 — Razgovor</div>
+        <h3>Slušam problem</h3>
+        <p>Razumijem što vas usporava i gdje se gubi vrijeme i novac.</p>
+      </div>
+      <div class="step">
+        <div class="s-num">02 — Plan</div>
+        <h3>Predlažem rješenje</h3>
+        <p>Jasna ponuda s opsegom, rokom i cijenom — prije nego krenemo.</p>
+      </div>
+      <div class="step">
+        <div class="s-num">03 — Izrada</div>
+        <h3>Gradim i testiram</h3>
+        <p>Razvijam rješenje uz redovite kontrolne točke i vaš uvid.</p>
+      </div>
+      <div class="step">
+        <div class="s-num">04 — Predaja</div>
+        <h3>Predaja i podrška</h3>
+        <p>Uvedem vas u alat i ostajem dostupan za pitanja i nadogradnje.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REZULTATI / WHY ============ -->
+<section class="pad" id="rezultati">
+  <div class="wrap">
+    <div class="why">
+      <div>
+        <div class="sec-head reveal" style="margin-bottom:40px">
+          <span class="eyebrow">Zašto Quantara</span>
+          <h2>Manje ručnog rada, više pouzdanih odluka</h2>
+        </div>
+        <div class="why-list">
+          <div class="why-item reveal">
+            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+            <div><h3>Rješenja po mjeri</h3><p>Ne prodajem gotove pakete — gradim točno ono što vaš proces traži.</p></div>
+          </div>
+          <div class="why-item reveal">
+            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+            <div><h3>Razumljiv jezik</h3><p>Objašnjavam sve bez tehničkog žargona, da znate što dobivate.</p></div>
+          </div>
+          <div class="why-item reveal">
+            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+            <div><h3>Lokalni partner</h3><p>Radim s hrvatskim tvrtkama i obrtima — dostupan, fleksibilan i blizu.</p></div>
+          </div>
+          <div class="why-item reveal">
+            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+            <div><h3>Mjerljiv učinak</h3><p>Fokus na uštedu vremena i smanjenje grešaka — ne na “lijepe tablice”.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="why-visual reveal">
+        <div class="metric-row">
+          <div class="m-num">−<span>70%</span></div>
+          <div class="m-lbl">manje vremena na izradu mjesečnih izvještaja</div>
+        </div>
+        <div class="metric-row">
+          <div class="m-num"><span>0</span></div>
+          <div class="m-lbl">ručnih grešaka kod automatiziranih procesa</div>
+        </div>
+        <div class="metric-row">
+          <div class="m-num"><span>1</span></div>
+          <div class="m-lbl">izvor istine umjesto razbacanih datoteka</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA + KONTAKT ============ -->
+<section class="pad" id="kontakt">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <h2>Imate proces koji vas usporava?</h2>
+      <p>Javite se — u kratkom razgovoru ćemo utvrditi gdje se najviše isplati automatizirati.</p>
+      <div class="hero-cta">
+        <a href="mailto:info@quantara.hr" class="btn">Pošalji upit</a>
+      </div>
+    </div>
+
+    <div class="contact-strip">
+      <div class="contact-card reveal">
+        <div class="c-lbl">E-pošta</div>
+        <a href="mailto:info@quantara.hr" class="c-val">info@quantara.hr</a>
+      </div>
+      <div class="contact-card reveal">
+        <div class="c-lbl">Lokacija</div>
+        <div class="c-val">Hrvatska · rad na daljinu</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="logo"><span class="dot"></span>Quantara</div>
+        <p class="foot-tag">Digitalne usluge, analitika podataka i automatizacija za hrvatske tvrtke i obrte.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4>Usluge</h4>
+          <a href="#usluge">Napredni Excel</a>
+          <a href="#usluge">Power BI</a>
+          <a href="#usluge">Power Automate</a>
+          <a href="#usluge">Konzalting</a>
+        </div>
+        <div class="foot-col">
+          <h4>Tvrtka</h4>
+          <a href="#proces">Kako radim</a>
+          <a href="#rezultati">Rezultati</a>
+          <a href="#kontakt">Kontakt</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span class="mono">© 2025 Quantara, obrt za digitalne usluge</span>
+      <span class="mono">quantara.hr</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // sticky nav
+  const header = document.getElementById('header');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 30);
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  // mobile menu
+  const toggle = document.getElementById('menutoggle');
+  const links = document.getElementById('navlinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  // scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, {threshold:0.15, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
 </body>
 </html>
